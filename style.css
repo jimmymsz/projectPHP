@@ -1,0 +1,22 @@
+.abc-logo{
+	color: white;
+	font-size: 50px;
+	font-family: cursive;
+	letter-spacing: 2px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.logo-img{
+	vertical-align: text-bottom;
+}
+#header{
+	background-color: lightblue;
+	height: 100px;
+	padding: 20px 20px 20px;
+}
+
+#menu{
+	background-color: blue;
+	height: 20px;
+	padding: 10px 0 10px;
+}
