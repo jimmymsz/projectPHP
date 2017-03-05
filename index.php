@@ -1,5 +1,5 @@
 <?php
-
+	echo "<script>alert('Welcome!');</script>"
 ?>
 
 <!DOCTYPE html>
@@ -30,40 +30,43 @@
 					<li class="small70">
 						<a class="non-link" href="#">Forum</a>
 						<ul class="nav-dropdown">
-							<li>Search Forum</li>
-							<li>Recent Posts</li>
+							<li> <a href="">Search Forum</a></li>
+							<li> <a href="">Recent Posts</a></li>
 						</ul>
-					</li>
+					</a></li>
 					<li class="small80">
 						<a class="non-link" href="#">Member</a>
 						<ul class="nav-dropdown">
-							<li>Notable Member</li>
-							<li>Forum Admin</li>
-							<li>New Members</li>
+							<li> <a href="">Notable Member</a></li>
+							<li> <a href="">Forum Admin</a></li>
+							<li> <a href="">New Members</a></li>
 						</ul>
-					</li>
+					</a></li>
 					<li class="small70">
 						<a class="non-link" href="#">Help (?)</a>
 						<ul class="nav-dropdown">
-							<li>About</li>
-							<li>Support</li>
-							<li>FAQs</li>
-							<li>Send Feedbacks<li>
+							<li> <a href="">About</a></li>
+							<li> <a href="">Support</a></li>
+							<li> <a href="">FAQs</a></li>
+							<li> <a href="">Send Feedbacks</a></li>
 						</ul>
-					</li>
+					</a></li>
 					<li class="large">
 						<a class="non-link" href="#">Experimental</a>
 						<ul class="nav-dropdown">
-							<li>Coming Soon...</li>
+							<li>Coming Soon</li>
+							<!--
+							<li> <a href="">Coming Soon...</a></li>
+							-->
 						</ul>
-					</li>
+					</a></li>
 				</ul>
 			</div>
 			<div id="menu_right">
 			</div>
 		</div>
 
-		<ul><li>abcd</li><li>1234</li></ul>
+		<ul><li> <a href="">abcd</a></li><li> <a href="">1234</a></li></ul>
 
 	</div>
 </body>

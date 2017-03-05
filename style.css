@@ -3,7 +3,7 @@ body {
 	text-align: center;
 }
 a {
-	cursor: pointer;
+	text-decoration: none;
 }
 #header-menu {
 	position: absolute;
@@ -93,7 +93,7 @@ a {
 #navigation > li > a {
 	display: block;
 	padding: 5px 0 5px;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: 700;
 	height: 24px;
 	text-decoration: none;
@@ -103,14 +103,14 @@ a.non-link {
 	text-align: center;
 	height: 34px;
 }
-#navigation li a:hover {
+#navigation> li> a:hover {
 	background-color: #E1E7F5;
 	color: black;
 	font-weight: bold;
 }
 #navigation .nav-dropdown > li {
-	width: 900px;
-	background-color: green;
+	width: 120px;
+	background-color: #E1E7F5;
 }
 /*ukuran */
 #navigation li.tiny {
@@ -138,6 +138,21 @@ a.non-link {
 	display: none;
 }
 
-#navigation>li:hover > .nav-dropdown > li{
+#navigation> li:hover > .nav-dropdown > li{
 	display: block;
+}
+
+.nav-dropdown > li {
+	position: relative;
+	padding: 5px 10px 5px;
+	left: -40px;
+	width: 120px;
+}
+
+#navigation .nav-dropdown > li:hover {
+	background-color: pink;
+}
+#navigation .nav-dropdown > li:hover > a{
+	display: inline-block;
+	color: black;
 }
