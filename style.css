@@ -2,6 +2,9 @@ body {
 	margin: 0;
 	text-align: center;
 }
+a {
+	cursor: pointer;
+}
 #header-menu {
 	position: absolute;
 	top:50px;
@@ -57,7 +60,7 @@ body {
 	background-color: red;
 	height: 34px;
 	width: 1060px;
-	padding: 10px 0 10px;
+	padding: 0px;
 }
 .menu > #menu_left {
 	float:left;
@@ -82,31 +85,32 @@ body {
 	float: left;
 	display: block;
 	width: 100px;
-	background: #E1E7F5;
+	height: 34px;
+	background-color: lightgreen;
 	position: relative;
 	z-index: 90;
-	text-indent: 5px; 
 }
 #navigation > li > a {
 	display: block;
-	padding: 10px 5px 0;
+	padding: 5px 0 5px;
 	font-size: 14px;
 	font-weight: 700;
-	height: 25px;
+	height: 24px;
 	text-decoration: none;
 	color: white;
-	background-color: red;
 }
 a.non-link {
 	text-align: center;
+	height: 34px;
 }
 #navigation li a:hover {
 	background-color: #E1E7F5;
 	color: black;
 	font-weight: bold;
 }
-#navigation .nav-dropdown li {
-	width: 130px;
+#navigation .nav-dropdown > li {
+	width: 900px;
+	background-color: green;
 }
 /*ukuran */
 #navigation li.tiny {
@@ -127,9 +131,13 @@ a.non-link {
 #navigation li.large {
 	width:97px;
 }
+.nav-dropdown {
+	position: relative;
+}
 .nav-dropdown > li {
 	display: none;
 }
-.non-link:hover + .nav-dropdown > li {
+
+#navigation>li:hover > .nav-dropdown > li{
 	display: block;
 }
