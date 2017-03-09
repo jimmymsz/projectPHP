@@ -2,6 +2,7 @@
 	echo "<script>alert('Welcome!');</script>"
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
