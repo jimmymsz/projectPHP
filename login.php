@@ -4,21 +4,73 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>abc - Login Page</title>
 </head>
 <body class="abc-login-body">
-	<h1>Login</h1>
-	<div id="login_div" style="text-align: center">
-		<form method="POST" action="login.php">
-			Username
-			<input type="text" name="username">
-			<br><br>
-			Password
-			<input type="password" name="password">
-			<br>
-			<input type="submit" name="submit" value="Login">
-			<a href="register.php"> Register here </a>
-		</form>
+	<div id="abc">
+		<div class="header">
+			<div id="link-abc-logo">
+				<a class="abc-logo" href="index.php">
+					<img class="logo-img" src="logo.png" alt="abc" height="100" width="130">
+					<span id="abc-title-logo">Forum abc</span>
+				</a>
+			</div>
+			<div id="header-menu">
+				<div class="header-menu-login">
+					<a class="btnLogin" href="login.php">Login</a>
+					<a class="btnRegister" href="register.php">Register</a>
+				</div>
+			</div>
+		</div>
+		<div class="menu">
+			<div id="menu_left">
+				<ul id="navigation">
+					<li class="small70">
+						<a class="non-link" href="#">Forum</a>
+						<ul class="nav-dropdown">
+							<li> <a href="">Search Forum</a></li>
+							<li> <a href="">Recent Posts</a></li>
+						</ul>
+					</a></li>
+					<li class="small80">
+						<a class="non-link" href="#">Member</a>
+						<ul class="nav-dropdown">
+							<li> <a href="">Notable Member</a></li>
+							<li> <a href="">Forum Admin</a></li>
+							<li> <a href="">New Members</a></li>
+						</ul>
+					</a></li>
+					<li class="small70">
+						<a class="non-link" href="#">Help (?)</a>
+						<ul class="nav-dropdown">
+							<li> <a href="">About</a></li>
+							<li> <a href="">Support</a></li>
+							<li> <a href="">FAQs</a></li>
+							<li> <a href="">Send Feedbacks</a></li>
+						</ul>
+					</a></li>
+					<li class="large">
+						<a class="non-link" href="#">Experimental</a>
+						<ul class="nav-dropdown">
+							<li>Coming Soon</li>
+							<!--
+							<li> <a href="">Coming Soon...</a></li>
+							-->
+						</ul>
+					</a></li>
+				</ul>
+			</div>
+			<div id="menu_right">
+			</div>
+		</div>
+
+		<div class="contentWrapper">
+			<div>
+				<h1 class="h1">Login to Forum abc</h1>
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>
