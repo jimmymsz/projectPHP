@@ -32,7 +32,7 @@
 							<li> <a href="">Search Forum</a></li>
 							<li> <a href="">Recent Posts</a></li>
 						</ul>
-					</a></li>
+					</li>
 					<li class="small80">
 						<a class="non-link" href="#">Member</a>
 						<ul class="nav-dropdown">
@@ -40,7 +40,7 @@
 							<li> <a href="">Forum Admin</a></li>
 							<li> <a href="">New Members</a></li>
 						</ul>
-					</a></li>
+					</li>
 					<li class="small70">
 						<a class="non-link" href="#">Help (?)</a>
 						<ul class="nav-dropdown">
@@ -49,7 +49,7 @@
 							<li> <a href="">FAQs</a></li>
 							<li> <a href="">Send Feedbacks</a></li>
 						</ul>
-					</a></li>
+					</li>
 					<li class="large">
 						<a class="non-link" href="#">Experimental</a>
 						<ul class="nav-dropdown">
@@ -58,7 +58,7 @@
 							<li> <a href="">Coming Soon...</a></li>
 							-->
 						</ul>
-					</a></li>
+					</li>
 				</ul>
 			</div>
 			<div id="menu_right">
@@ -69,8 +69,31 @@
 			<div>
 				<h1 class="h1">Login to Forum abc</h1>
 			</div>
-		</div>
+			<div id="content">
+				<div id="login-box">
+					<br>
+					<h1 style="font-size: 20px; font-family: Verdana,Arial; padding-bottom: 15px">Login </h1>
+					
+					<p>Username
+						<input type="text" name="username" size="20" maxlength="30">
+					</p>
+					<p>Password
+						<input type="password" name="password" size="20" maxlength="32">
+					</p>
+					<p>
+              			<input name="cookie" value="1" checked="checked" type="checkbox" disabled="true"> Always stay logged in?
+            		</p>
 
+            		<p>
+              			<input type="submit" name="submit" value="Login">
+              		</p>
+              		<p>
+		              	 <a href="password.php?username=1">Forgot username?</a> | 
+		              	 <a href="password.php">Forgot password?</a>
+		            </p>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

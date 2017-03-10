@@ -174,3 +174,12 @@ a.non-link {
 	padding-bottom: 30px;
 	background-color: #FFF;
 }
+#content #login-box {
+	height: 320px;
+	width: 500px;
+	margin: 15px auto;
+	border: 10px solid lightgreen;
+	position: relative;
+	text-align: center;
+	background-color: #FFF;
+}
