@@ -5,6 +5,18 @@ body {
 a {
 	text-decoration: none;
 }
+h1.h1 {
+	font-family: Verdana,Arial;
+	font-size: 16px;
+	font-weight: 700;
+	background-color: #e1e7f5;
+	text-align: left;
+	border: 1px solid;
+	border-color: #ebebeb #ebebeb #1d439b;
+	color: #000;
+	padding: 5px 9px;
+	margin: 0;
+}
 #header-menu {
 	position: absolute;
 	top:50px;
@@ -155,4 +167,10 @@ a.non-link {
 #navigation .nav-dropdown > li:hover > a{
 	display: inline-block;
 	color: black;
+}
+.contentWrapper {
+	position: relative;
+	min-height: 300px;
+	padding-bottom: 30px;
+	background-color: #FFF;
 }
