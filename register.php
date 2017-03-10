@@ -69,6 +69,12 @@
 			<div>
 				<h1 class="h1">Register to Forum abc</h1>
 			</div>
+
+			<div id="content">
+				<div id="register-box">
+					
+				</div>
+			</div>
 		</div>
 
 	</div>
