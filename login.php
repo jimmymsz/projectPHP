@@ -1,4 +1,17 @@
 <?php
+	if ($_POST) {
+		$username = $_POST["username"];
+		$password = $_POST["password"];
+
+		require_once "database.php";
+		$db = new userDB();
+		$user = $db->check_login($username, $password);
+		if ($user != -1) {
+			echo "Welcome $user";
+		} else if ($user == -1) {
+			echo "username atau password salah";
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -71,22 +84,24 @@
 			</div>
 			<div id="content">
 				<div id="login-box">
-					<br>
-					<h1 style="font-size: 20px; font-family: Verdana,Arial; padding-bottom: 15px">Login </h1>
-					
-					<p>Username
-						<input type="text" name="username" size="20" maxlength="30">
-					</p>
-					<p>Password
-						<input type="password" name="password" size="20" maxlength="32">
-					</p>
-					<p>
-              			<input name="cookie" value="1" checked="checked" type="checkbox" disabled="true"> Always stay logged in?
-            		</p>
+					<form method="post" action="login.php">
+						<br>
+						<h1 style="font-size: 20px; font-family: Verdana,Arial; padding-bottom: 15px">Login </h1>
+						
+						<p>Username
+							<input type="text" name="username" size="20" maxlength="30">
+						</p>
+						<p>Password
+							<input type="password" name="password" size="20" maxlength="32">
+						</p>
+						<p>
+	              			<input name="cookie" value="1" checked="checked" type="checkbox" disabled="true"> Always stay logged in?
+	            		</p>
 
-            		<p>
-              			<input type="submit" name="submit" value="Login">
-              		</p>
+	            		<p>
+	              			<input type="submit" name="submit" value="Login">
+	              		</p>
+	              	</form>
               		<p>
 		              	 <a href="password.php?username=1">Forgot username?</a> | 
 		              	 <a href="password.php">Forgot password?</a>
