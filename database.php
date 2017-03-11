@@ -4,6 +4,9 @@
 
 		function __construct() {
 			$this->conn = mysqli_connect("localhost", "root", "", "forum");
+			if (!$this->conn) {
+				die(mysqli_connect_error());
+			}			
 		}
 
 		function secure_input($input) {
@@ -27,7 +30,15 @@
 			$query = "SELECT userName, password FROM user WHERE userName = '$username'";
 			$result = $this->fetch($query);
 			$result = $result[0];
+			echo $query;
 			return ($password == $result['password'] ? $result['userName'] : -1);
+		}
+	}
+
+	class postDB extends Database {
+		function selectByUsr($username) {
+			$query = "SELECT * FROM post WHERE userName = '$username' ORDER BY timestamp ASC";
+			return $this->fetch($query);
 		}
 	}
 ?>
