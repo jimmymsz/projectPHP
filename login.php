@@ -42,27 +42,27 @@
 					<li class="small70">
 						<a class="non-link" href="#">Forum</a>
 						<ul class="nav-dropdown">
-							<li> <a href="">Search Forum</a></li>
-							<li> <a href="">Recent Posts</a></li>
+							<li> <a href="search.php">Search Forum</a></li>
+							<li> <a href="recent-posts.php">Recent Posts</a></li>
 						</ul>
-					</li>
+					</a></li>
 					<li class="small80">
 						<a class="non-link" href="#">Member</a>
 						<ul class="nav-dropdown">
-							<li> <a href="">Notable Member</a></li>
-							<li> <a href="">Forum Admin</a></li>
-							<li> <a href="">New Members</a></li>
+							<li> <a href="members.php?go=notable">Notable Member</a></li>
+							<li> <a href="forum-admin.php">Forum Admin</a></li>
+							<li> <a href="members.php?go=new">New Members</a></li>
 						</ul>
-					</li>
+					</a></li>
 					<li class="small70">
 						<a class="non-link" href="#">Help (?)</a>
 						<ul class="nav-dropdown">
-							<li> <a href="">About</a></li>
-							<li> <a href="">Support</a></li>
-							<li> <a href="">FAQs</a></li>
-							<li> <a href="">Send Feedbacks</a></li>
+							<li> <a href="about.php?go=about">About</a></li>
+							<li> <a href="about.php?go=support">Support</a></li>
+							<li> <a href="about.php?go=faqs">FAQs</a></li>
+							<li> <a href="about.php?go=feedbacks">Send Feedbacks</a></li>
 						</ul>
-					</li>
+					</a></li>
 					<li class="large">
 						<a class="non-link" href="#">Experimental</a>
 						<ul class="nav-dropdown">
@@ -71,7 +71,7 @@
 							<li> <a href="">Coming Soon...</a></li>
 							-->
 						</ul>
-					</li>
+					</a></li>
 				</ul>
 			</div>
 			<div id="menu_right">
