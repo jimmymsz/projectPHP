@@ -4,6 +4,7 @@
 		$password = $_POST["password"];
 
 		require_once "database.php";
+		echo $_COOKIE["name"];
 		$db = new userDB();
 		$user = $db->check_login($username, $password);
 		if ($user != -1) {

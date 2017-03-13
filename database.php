@@ -30,8 +30,18 @@
 			$query = "SELECT userName, password FROM user WHERE userName = '$username'";
 			$result = $this->fetch($query);
 			$result = $result[0];
-			echo $query;
+			
 			return ($password == $result['password'] ? $result['userName'] : -1);
+		}
+
+		function getMembers($groupId) {
+			$query = "SELECT memberId, userName FROM member WHERE groupId = '$groupId'";
+			return $this->fetch($query);
+		}
+
+		function getGroups($userName) {
+			$query = "SELECT groupId FROM member WHERE userName = '$userName'";
+			return $this->fetch($query);
 		}
 	}
 
