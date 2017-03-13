@@ -9,7 +9,16 @@ echo "hello world";
 
 	unset($_COOKIE["name"]);
 	setcookie("name", "Kuncoro", time() + 10000);
-	
+
+	if($_POST) {
+		$title = $_POST["title"];
+		$content = $_POST["content"];
+		if(strlen($title) != 0) {
+			if ($dbPost->insertPost("yoko", "php", $title, $content)) {
+				echo "sukses";
+			}
+		}
+	}	
 ?>
 <br>
 <?php

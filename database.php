@@ -9,6 +9,10 @@
 			}			
 		}
 
+		function getDateTime() {
+			return date('Y-m-d H:i:s');
+		}
+
 		function secure_input($input) {
 			return $this->conn->real_escape_string(strip_tags($input));
 		}
@@ -20,6 +24,10 @@
 				array_push($retval, $row);
 			}
 			return $retval;
+		}
+
+		function prepare($query) {
+			return $this->conn->prepare($query);
 		}				
 	}
 
@@ -46,6 +54,14 @@
 	}
 
 	class postDB extends Database {
+		public function insertPost($username, $group, $title, $content) {
+			$timestamp = $this->getDateTime();
+			$query = "INSERT INTO post(userName,groupId, title, content, timestamp) VALUES (?, ?, ?, ?, ?)";
+			$stmt = $this->prepare($query);
+			$stmt->bind_param("sssss", $username, $group, $title, $content, $timestamp);
+			return $stmt->execute();	
+		}
+
 		function selectByUsr($username) {
 			$query = "SELECT * FROM post WHERE userName = '$username' ORDER BY timestamp ASC";
 			return $this->fetch($query);
