@@ -4,11 +4,11 @@
 		$password = $_POST["password"];
 
 		require_once "database.php";
-		echo $_COOKIE["name"];
 		$db = new userDB();
 		$user = $db->check_login($username, $password);
 		if ($user != -1) {
-			echo "Welcome $user";
+			setcookie("login", $username);
+			echo "<script>window.location.href = 'home.php';</script>";
 		} else if ($user == -1) {
 			echo "username atau password salah";
 		}

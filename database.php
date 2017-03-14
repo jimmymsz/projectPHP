@@ -35,8 +35,12 @@
 		function check_login($username, $password) {
 			$username = $this->secure_input($username);
 
-			$query = "SELECT userName, password FROM user WHERE userName = '$username'";
+			$query = "SELECT userName, password, fullName FROM user WHERE userName = '$username'";
 			$result = $this->fetch($query);
+			if (!$result) {
+				echo "<script>window.location.href = 'login.php';</script>";
+				exit();
+			} 
 			$result = $result[0];
 			
 			return ($password == $result['password'] ? $result['userName'] : -1);
