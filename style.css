@@ -183,3 +183,12 @@ a.non-link {
 	text-align: center;
 	background-color: #FFF;
 }
+#content #register-box {
+	height: 400px;
+	width: 500px;
+	margin: 15px auto;
+	border: 10px groove lightgreen;
+	position: relative;
+	text-align: center;
+	background-color: #FFF;
+}
