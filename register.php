@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +73,34 @@
 
 			<div id="content">
 				<div id="register-box">
-					
+					<form method="POST" action="register.php">
+						<br>
+						<h1 style="font-size: 22px; font-family: Verdana,Arial; padding-bottom: 0px">Register </h1>
+						<p>Join and Start Using Forum abc today</p>
+						<br>
+						<p>Email
+							<input type="email" name="email" size="20" maxlength="30" required="true">
+						</p>
+						<p>Username
+							<input type="text" name="username" size="20" maxlength="30" required="true">
+						</p>
+						<p>Full Name
+							<input type="fullname" name="fullname" size="20" maxlength="40" required="true">
+						</p>
+						<p>Gender
+							<select name="gender" required="true">
+								<option value="M">Male</option>
+								<option value="F">Female</option>
+								<option value=".">Prefer not to say&nbsp;&nbsp;</option>
+							</select>
+						</p>
+						<p>Password
+							<input type="password" name="password" size="20" maxlength="32" required="true">
+						</p>
+						<p>
+	              			<input type="submit" name="submit" value="Register" required="true">
+	              		</p>
+					</form>
 				</div>
 			</div>
 		</div>
