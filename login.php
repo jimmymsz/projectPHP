@@ -7,7 +7,7 @@
 		$db = new userDB();
 		$user = $db->check_login($username, $password);
 		if ($user != -1) {
-			setcookie("login", $username);
+			setcookie("login", $username, time() + 1000000);
 			echo "<script>window.location.href = 'home.php';</script>";
 		} else if ($user == -1) {
 			echo "username atau password salah";

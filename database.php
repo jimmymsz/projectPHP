@@ -55,6 +55,13 @@
 			$query = "SELECT groupId FROM member WHERE userName = '$userName'";
 			return $this->fetch($query);
 		}
+
+		function getGroup($groupid) {
+			$query = "SELECT * FROM forumgroup WHERE idGroup = '$groupid'";
+			$result = $this->fetch($query);
+			$result = $result[0];
+			return $result;
+		}
 	}
 
 	class postDB extends Database {
@@ -72,7 +79,7 @@
 		}
 
 		function selectByGrp($groupid) {
-			$query = "SELECT * FROM post WHERE groupId = '$groupid' ORDER BY timestamp ASC";
+			$query = "SELECT * FROM post WHERE groupId = '$groupid' ORDER BY timestamp DESC";
 			return $this->fetch($query);
 		}
 	}
