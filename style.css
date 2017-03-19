@@ -170,7 +170,7 @@ a.non-link {
 }
 .contentWrapper {
 	position: relative;
-	min-height: 300px;
+	min-height: 500px;
 	padding-bottom: 30px;
 	background-color: #FFF;
 }
@@ -191,4 +191,33 @@ a.non-link {
 	position: relative;
 	text-align: center;
 	background-color: #FFF;
+}
+#content #forgot-password-box {
+	height: 350px;
+	width: 400px;
+	margin: 15px auto;
+	border: 10px solid lightgreen;
+	position: relative;
+	text-align: left;
+	background-color: #FFF;
+}
+#content #forgot-username-box {
+	height: 255px;
+	width: 400px;
+	margin: 15px auto;
+	border: 10px solid lightgreen;
+	position: relative;
+	text-align: left;
+	background-color: #FFF;
+}
+.footer {
+	text-align: center;
+	font-family: Verdana,Arial;
+	font-size: 12px;
+	background-color: lightblue;
+}
+.footer #footer-block {
+	padding: 15px 0;
+	background-color: lightblue;
+	color: #FFF;
 }

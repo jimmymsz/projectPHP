@@ -5,9 +5,9 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>abc Admin </title>
+	<title>abc</title>
 </head>
-<body class="abc-login-body">
+<body class="abc-members-body">
 	<div id="abc">
 		<div class="header">
 			<div id="link-abc-logo">
@@ -67,6 +67,30 @@
 
 		<div class="contentWrapper">
 			
+		</div>
+
+		<div class="footer">
+			<div id="footer-block">
+				<div id="footer-link-block">
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="">Home</a>
+					</p>
+					|
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="about.php" style="padding: 0 5px">About</a>
+						<a href="about.php?go=support" style="padding: 0 5px">Support</a>
+						<a href="advertising.php" style="padding: 0 5px">Advertising</a>
+						<a href="about.php?go=faqs" style="padding: 0 5px">FAQ</a>
+					</p>
+					|
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="login.php" style="padding: 0 5px">Login</a>
+						<a href="register.php" style="padding: 0 5px">Register</a>
+					</p>
+				</div>
+				<div id="blank" style="height:40px"></div>
+				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
+			</div>
 		</div>
 	</div>
 </body>

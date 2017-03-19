@@ -1,27 +1,13 @@
 <?php
-	if ($_POST) {
-		$username = $_POST["username"];
-		$password = $_POST["password"];
-
-		require_once "database.php";
-		$db = new userDB();
-		$user = $db->check_login($username, $password);
-		if ($user != -1) {
-			setcookie("login", $username, time() + 1000000);
-			echo "<script>window.location.href = 'home.php';</script>";
-		} else if ($user == -1) {
-			echo "username atau password salah";
-		}
-	}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>abc - Login Page</title>
+	<title>Recover Password - Forum abc</title>
 </head>
-<body class="abc-login-body">
+<body class="abc-forgot-password-body">
 	<div id="abc">
 		<div class="header">
 			<div id="link-abc-logo">
@@ -81,32 +67,31 @@
 
 		<div class="contentWrapper">
 			<div>
-				<h1 class="h1">Login to Forum abc</h1>
+				<h1 class="h1">
+					Recover abc Password
+				</h1>
 			</div>
 			<div id="content">
-				<div id="login-box">
-					<form method="post" action="login.php">
-						<br>
-						<h1 style="font-size: 20px; font-family: Verdana,Arial; padding-bottom: 15px">Login </h1>
-						
-						<p>Username
-							<input type="text" name="username" size="20" maxlength="30">
-						</p>
-						<p>Password
-							<input type="password" name="password" size="20" maxlength="32">
-						</p>
-						<p>
-	              			<input name="cookie" value="1" checked="checked" type="checkbox"> Always stay logged in?
-	            		</p>
+				<div id="forgot-password-box">
+					<div style="padding-left: 20px">
+						<form method="post" action="forgot-password.php">
+							<br>
+							Please insert your e-mail. <br>
+							An e-mail will be sent to you shortly with your username and <strong>new</strong> password.
+							<br> <br>
 
-	            		<p>
-	              			<input type="submit" name="submit" value="Login">
-	              		</p>
-	              	</form>
-              		<p>
-		              	 <a href="forgot-username.php">Forgot username?</a> | 
-		              	 <a href="forgot-password.php">Forgot password?</a>
-		            </p>
+							<p style="font-size: 16px">Username</p>
+								<input type="username" name="username" size="55" maxlength="30">
+							<p style="font-size: 16px">E-mail address</p>
+								<input type="email" name="email" size="55" maxlength="30">
+		            		<p style="text-align: center">
+		              			<input type="submit" name="submit" value="Request Password">
+		              		</p>
+		              	</form>
+	              		<p style="text-align: center">
+			              	 <a href="forgot-username.php">&nbsp;Forgot username?</a>
+			            </p>
+		            </div>
 				</div>
 			</div>
 		</div>

@@ -1,27 +1,13 @@
 <?php
-	if ($_POST) {
-		$username = $_POST["username"];
-		$password = $_POST["password"];
-
-		require_once "database.php";
-		$db = new userDB();
-		$user = $db->check_login($username, $password);
-		if ($user != -1) {
-			setcookie("login", $username, time() + 1000000);
-			echo "<script>window.location.href = 'home.php';</script>";
-		} else if ($user == -1) {
-			echo "username atau password salah";
-		}
-	}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>abc - Login Page</title>
+	<title> abc - advertising </title>
 </head>
-<body class="abc-login-body">
+<body class="abc-ads-body">
 	<div id="abc">
 		<div class="header">
 			<div id="link-abc-logo">
@@ -81,33 +67,12 @@
 
 		<div class="contentWrapper">
 			<div>
-				<h1 class="h1">Login to Forum abc</h1>
+				<h1 class="h1">Advertising page</h1>
 			</div>
 			<div id="content">
-				<div id="login-box">
-					<form method="post" action="login.php">
-						<br>
-						<h1 style="font-size: 20px; font-family: Verdana,Arial; padding-bottom: 15px">Login </h1>
-						
-						<p>Username
-							<input type="text" name="username" size="20" maxlength="30">
-						</p>
-						<p>Password
-							<input type="password" name="password" size="20" maxlength="32">
-						</p>
-						<p>
-	              			<input name="cookie" value="1" checked="checked" type="checkbox"> Always stay logged in?
-	            		</p>
-
-	            		<p>
-	              			<input type="submit" name="submit" value="Login">
-	              		</p>
-	              	</form>
-              		<p>
-		              	 <a href="forgot-username.php">Forgot username?</a> | 
-		              	 <a href="forgot-password.php">Forgot password?</a>
-		            </p>
-				</div>
+				<h1>Not yet available. <br><br>
+					Come back next time.
+				</h1>
 			</div>
 		</div>
 
@@ -134,6 +99,7 @@
 				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
 			</div>
 		</div>
+
 	</div>
 </body>
 </html>
