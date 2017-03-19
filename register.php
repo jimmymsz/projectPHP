@@ -1,5 +1,24 @@
 <?php
+	if ($_POST) {
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$fullname = $_POST['fullname'];
+		$bday = $_POST['bday'];
+		$gender = $_POST['gender'];
+		$password = $_POST['password'];
+		
+		require_once 'database.php';
+		$db = new userDB();
 
+		$result = $db->insertUsr($username, $email, $fullname, $bday,$gender, $password);
+		if ($result == 1) {
+			echo "<script>alert('Registrasi berhasil!')</script>";
+			header("Location: login.php");
+			exit();
+		} else if ($result == -1) {
+			echo "$username telah tersedia";
+		}	
+	}
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +105,10 @@
 						</p>
 						<p>Full Name
 							<input type="fullname" name="fullname" size="20" maxlength="40" required="true">
+						</p>
+						<p>
+							Tanggal Lahir:
+							<input type="date" name="bday">
 						</p>
 						<p>Gender
 							<select name="gender" required="true">

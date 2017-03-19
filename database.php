@@ -8,6 +8,11 @@
 				die(mysqli_connect_error());
 			}			
 		}
+		
+		function query($query) {
+			return $this->conn->query($query);
+			//return mysqli_query($this->conn, $query);
+		}
 
 		function getDateTime() {
 			return date('Y-m-d H:i:s');
@@ -32,6 +37,16 @@
 	}
 
 	class userDB extends Database {
+		function getUsr($username) {
+			$query = "SELECT * FROM user WHERE userName = '$username'";
+			$result = $this->fetch($query);
+			if ($result) {
+				return $result[0];
+			} else {
+				return -1;
+			}
+		}
+
 		function check_login($username, $password) {
 			$username = $this->secure_input($username);
 
@@ -43,7 +58,24 @@
 			} 
 			$result = $result[0];
 			
-			return ($password == $result['password'] ? $result['userName'] : -1);
+			return (password_verify($password, $result['password']) ? $result['userName'] : -1);
+		}
+
+		function insertUsr($username, $email, $fullname, $bday,$gender, $password) {
+			$timestamp = $this->getDateTime();
+			$username = $this->secure_input($username);
+			$email = $this->secure_input($email);
+			$fullname = $this->secure_input($fullname);
+			$bday = $this->secure_input($bday);
+			$gender = $this->secure_input($gender);
+			$password = password_hash($password, PASSWORD_DEFAULT);
+			$chk = $this->getUsr($username);
+			if ($chk == -1) {
+				$query = "INSERT INTO user(userName, email, fullName, birthDay, gender, passWord, timestamp) VALUES ('$username', '$email', '$fullname','$bday', '$gender','$password', '$timestamp')";
+				return $this->query($query);
+			} else {
+				return -1;
+			}
 		}
 
 		function getMembers($groupId) {

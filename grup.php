@@ -1,11 +1,22 @@
 <?php
 	$idGroup = $_GET['idGroup'];
-	$group = $dbUsr->getGroup($idGroup);
-	echo $group['groupName'];
+	$group = $dbUsr->getGroup($idGroup); ?>
+	<h1><?php echo $group['groupName'];?></h1>
 
-	$members = $dbUsr->getMembers($idGroup);
-	$groupPosts = $dbPost->selectByGrp($idGroup);
-	if (count($posts) == 0) {
+	<?php $members = $dbUsr->getMembers($idGroup);
+	$groupPosts = $dbPost->selectByGrp($idGroup); ?>
+	<h2>Members:</h2>
+	<?php  
+	if (count($members) == 0) {
+		echo "don't have any member?";
+	} else { 
+		foreach ($members as $m) { 
+			echo $m['userName'];		
+		}	
+	}
+	?>
+	<h2>Recent posts:</h2>
+	<?php if (count($posts) == 0) {
 			echo "Empty post.<br>";
 		} else {
 		foreach ($groupPosts as $p) { ?> 
@@ -16,12 +27,4 @@
 			</div>
 			<br>
 		<?php } ?>
-	<?php } 
-	if (count($members) == 0) {
-		echo "don't have any member?";
-	} else {
-		foreach ($members as $m) {
-			echo $m['userName'];		
-		}	
-	}
-	?>
+	<?php } ?>
