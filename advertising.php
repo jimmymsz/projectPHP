@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title> abc - advertising </title>
 </head>
-<body class="abc-main-body">
+<body class="abc-ads-body">
 	<div id="abc">
 		<div class="header">
 			<div id="link-abc-logo">

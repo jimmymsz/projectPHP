@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>abc</title>
 </head>
-<body class="abc-login-body">
+<body class="abc-recent-posts-body">
 	<div id="abc">
 		<div class="header">
 			<div id="link-abc-logo">
