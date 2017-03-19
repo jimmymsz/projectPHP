@@ -104,8 +104,8 @@
 	              		</p>
 	              	</form>
               		<p>
-		              	 <a href="password.php?username=1">Forgot username?</a> | 
-		              	 <a href="password.php">Forgot password?</a>
+		              	 <a href="forgot-username.php">Forgot username?</a> | 
+		              	 <a href="forgot-password.php">Forgot password?</a>
 		            </p>
 				</div>
 			</div>
