@@ -192,6 +192,24 @@ a.non-link {
 	text-align: center;
 	background-color: #FFF;
 }
+#content #forgot-password-box {
+	height: 350px;
+	width: 400px;
+	margin: 15px auto;
+	border: 10px solid lightgreen;
+	position: relative;
+	text-align: left;
+	background-color: #FFF;
+}
+#content #forgot-username-box {
+	height: 255px;
+	width: 400px;
+	margin: 15px auto;
+	border: 10px solid lightgreen;
+	position: relative;
+	text-align: left;
+	background-color: #FFF;
+}
 .footer {
 	text-align: center;
 	font-family: Verdana,Arial;
