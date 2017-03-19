@@ -72,14 +72,30 @@
 				<h1 class="h1">Welcome to Forum abc</h1>
 			</div>
 			<div id="content">
-				<div class="side" style="float: left; background-color: red; width:260px;height: 400px; display: inline-block;" ></div>
-				<div class="main" style="float; right; background-color: lightgreen;width:800px; height: 400px; display: inline-block;"></div>
+				<div class="side" style="float: left; background-color: red; width:260px;height: 600px; display: inline-block;" ></div>
+				<div class="main" style="float; right; background-color: lightgreen;width:800px; height: 600px; display: inline-block;"></div>
 			</div>
 		</div>
 
 		<div class="footer">
 			<div id="footer-block">
-				<div id="footer-link-block"></div>
+				<div id="footer-link-block">
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="">Home</a>
+					</p>
+					|
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="about.php" style="padding: 0 5px">About</a>
+						<a href="about.php?go=support" style="padding: 0 5px">Support</a>
+						<a href="advertising.php" style="padding: 0 5px">Advertising</a>
+						<a href="about.php?go=faqs" style="padding: 0 5px">FAQ</a>
+					</p>
+					|
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="login.php" style="padding: 0 5px">Login</a>
+						<a href="register.php" style="padding: 0 5px">Register</a>
+					</p>
+				</div>
 				<div id="blank" style="height:40px"></div>
 				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
 			</div>
