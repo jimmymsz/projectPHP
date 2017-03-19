@@ -96,7 +96,7 @@
 							<input type="password" name="password" size="20" maxlength="32">
 						</p>
 						<p>
-	              			<input name="cookie" value="1" checked="checked" type="checkbox" disabled="true"> Always stay logged in?
+	              			<input name="cookie" value="1" checked="checked" type="checkbox" disabled="false"> Always stay logged in?
 	            		</p>
 
 	            		<p>
