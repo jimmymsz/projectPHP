@@ -3,7 +3,9 @@ echo "hello world";
 	require_once "database.php";
 	$dbPost = new postDB();
 	$posts = $dbPost->selectByUsr("yoko");
-
+	
+	$gposts = $dbPost->selectByGrp("php");
+	
 	$dbUsr = new userDB();
 	$members = $dbUsr->getGroups("yoko");	 
 
@@ -30,7 +32,7 @@ echo "hello world";
 			echo $m['groupId']; ?>
 			<br>
 	<?php } ?>
-	<?php foreach ($posts as $p) { ?> 
+	<?php foreach ($gposts as $p) { ?> 
 		<div>
 			<b><?php echo $p['title']; ?></b>
 			<br>

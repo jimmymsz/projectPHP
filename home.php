@@ -2,6 +2,7 @@
 	if (isset($_COOKIE['login'])) {
 		$username = $_COOKIE['login'];
 	} else {
+		echo "<script>alert('anda belum login');</script>";
 		echo "<script>window.location.href = 'login.php';</script>";
 		exit();
 	}
@@ -17,8 +18,8 @@
 		$title = $_POST["title"];
 		$content = $_POST["content"];
 		if(strlen($title) != 0) {
-			if ($dbPost->insertPost("yoko", "php", $title, $content)) {
-				echo "sukses";
+			if ($dbPost->insertPost($username, "public", $title, $content)) {
+				echo "<script>alert('post berhasil dimasukkan');</script>";
 			}
 		}
 	}	
@@ -41,13 +42,14 @@
 		<?php foreach ($posts as $p) { ?> 
 			<div>
 				<b><?php echo $p['title']; ?></b>
+				Group: <?php echo $p['groupId']?>
 				<br>
 				<?php echo $p['content']; ?>
 			</div>
 		<?php } ?>
 	<?php } ?>
 
-	<form action="test.php" method="post">
+	<form action="home.php" method="post">
 		Title
 		<input type="text" name="title">
 		<br>
@@ -58,6 +60,4 @@
 	<br>
 	<a href="logout.php">Logout</a>
 </body>
-</html>>
-
-	
+</html>

@@ -70,5 +70,10 @@
 			$query = "SELECT * FROM post WHERE userName = '$username' ORDER BY timestamp ASC";
 			return $this->fetch($query);
 		}
+
+		function selectByGrp($groupid) {
+			$query = "SELECT * FROM post WHERE groupId = '$groupid' ORDER BY timestamp ASC";
+			return $this->fetch($query);
+		}
 	}
 ?>
