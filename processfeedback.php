@@ -18,6 +18,9 @@
 </head>
 <body>
 	<h1>Feedback submitted</h1>
-	<p>Your feedback has been sent.</p>
+	<p>Your feedback has been sent.
+		<br><br>
+		You will be redirected soon.
+	</p>
 </body>
 </html>

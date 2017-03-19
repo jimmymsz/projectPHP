@@ -5,7 +5,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>abc Admin </title>
+	<title>abc</title>
 </head>
 <body class="abc-login-body">
 	<div id="abc">
