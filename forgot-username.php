@@ -1,13 +1,21 @@
 <?php
+	$page = (isset($_GET['username'])? "un" : "pw");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Recover Password - Forum abc</title>
+	<?php
+		if ($page=="un"){
+			echo"<title>Recover Username - Forum abc</title>";
+		}
+		else {
+			echo"<title>Recover Password - Forum abc</title>";
+		}
+	?>
 </head>
-<body class="abc-forgot-password-body">
+<body class="abc-forgot-username-body">
 	<div id="abc">
 		<div class="header">
 			<div id="link-abc-logo">
@@ -68,28 +76,33 @@
 		<div class="contentWrapper">
 			<div>
 				<h1 class="h1">
-					Recover abc Password
+					<?php
+						if ($page=="un"){
+							echo"Recover abc Username";
+						}
+						else {
+							echo"Recover abc Password";
+						}
+					?>
 				</h1>
 			</div>
 			<div id="content">
-				<div id="forgot-password-box">
+				<div id="forgot-username-box">
 					<div style="padding-left: 20px">
-						<form method="post" action="forgot-password.php">
+						<form method="post" action="forgot-username.php">
 							<br>
 							Please insert your e-mail. <br>
-							An e-mail will be sent to you shortly with your username and <strong>new</strong> password.
+							An e-mail will be sent to you shortly with your username.
 							<br> <br>
 
-							<p style="font-size: 16px">Username</p>
-								<input type="username" name="username" size="55" maxlength="30">
 							<p style="font-size: 16px">E-mail address</p>
 								<input type="email" name="email" size="55" maxlength="30">
 		            		<p style="text-align: center">
-		              			<input type="submit" name="submit" value="Request Password">
+		              			<input type="submit" name="submit" value="Request Username">
 		              		</p>
 		              	</form>
 	              		<p style="text-align: center">
-			              	 <a href="forgot-username.php">&nbsp;Forgot username?</a>
+			              	 <a href="forgot-username.php">&nbsp;Forgot password?</a>
 			            </p>
 		            </div>
 				</div>
