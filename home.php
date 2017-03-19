@@ -3,7 +3,7 @@
 	if (isset($_COOKIE['login'])) {
 		$username = $_COOKIE['login'];
 	} else {
-		echo "<script>alert('anda belum login');</script>";
+		echo "<script>alert('Not logged in');</script>";
 		echo "<script>window.location.href = 'login.php';</script>";
 		exit();
 	}
@@ -20,7 +20,7 @@
 		$content = $_POST["content"];
 		if(strlen($title) != 0) {
 			if ($dbPost->insertPost($username, "public", $title, $content)) {
-				echo "<script>alert('post berhasil dimasukkan');</script>";
+				echo "<script>alert('Post success.');</script>";
 			}
 		}
 	}	
@@ -47,6 +47,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="menu">
 			<div id="menu_left">
 				<ul id="navigation">
@@ -144,6 +145,7 @@
 				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
 			</div>
 		</div>
+
 	</div>
 </body>
 </html>
