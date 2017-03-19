@@ -72,11 +72,18 @@
 				<h1 class="h1">Welcome to Forum abc</h1>
 			</div>
 			<div id="content">
-				
+				<div class="side" style="float: left; background-color: red; width:260px;height: 400px; display: inline-block;" ></div>
+				<div class="main" style="float; right; background-color: lightgreen;width:800px; height: 400px; display: inline-block;"></div>
 			</div>
 		</div>
 
-		<ul><li> <a href="">abcd</a></li><li> <a href="">1234</a></li></ul>
+		<div class="footer">
+			<div id="footer-block">
+				<div id="footer-link-block"></div>
+				<div id="blank" style="height:40px"></div>
+				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
+			</div>
+		</div>
 
 	</div>
 </body>
