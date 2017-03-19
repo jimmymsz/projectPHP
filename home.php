@@ -100,8 +100,8 @@
 						case 'profile':
 							require_once 'profile.php';
 							break;
-						case 'grup':
-							require_once 'grup.php';
+						case 'group':
+							require_once 'group.php';
 							break;
 						default:
 							# code...

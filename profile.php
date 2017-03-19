@@ -10,7 +10,7 @@ if (count($groups) == 0) {
 } else { ?>
 	<h2>Your Groups:</h2>
 	<?php foreach ($groups as $g) { ?>
-	<a href="home.php?page=grup&idGroup=<?php echo $g['groupId'];?>"><?php echo $g['groupId']; ?></a>
+	<a href="home.php?page=group&idGroup=<?php echo $g['groupId'];?>"><?php echo $g['groupId']; ?></a>
 	<br>
 	<?php } ?>
 		<?php }
