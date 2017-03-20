@@ -6,8 +6,11 @@
 	}
 	
 if (count($groups) == 0) {
-			echo "You don't have any groups yet<br>";
-} else { ?>
+			echo "You don't have any groups yet<br>"; ?>
+			<a href="search.php">Join a group</a>
+			or
+			<a href="home.php?page=newGroup">Create a group</a><br><br>
+<?php } else { ?>
 	<h2>Your Groups:</h2>
 	<ul>
 	<?php foreach ($groups as $g) { ?>
@@ -16,9 +19,6 @@ if (count($groups) == 0) {
 		</li>
 	<?php } ?>
 	</ul>
-	<a href="search.php">Join a group</a>
-	or
-	<a href="home.php?page=newGroup">Create a group</a>
 		<?php }
 		if (count($posts) == 0) {
 			echo "Empty post.<br>";

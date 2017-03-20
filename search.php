@@ -84,7 +84,7 @@
 			</form>
 			<?php switch ($page) {
 				case 'grup':
-					require_once 'grup.php';
+					require_once 'group.php';
 					break;
 				default:
 					# code...
