@@ -1,7 +1,6 @@
 <?php
-	if($_POST) {
+	if(isset($_POST['submit'])) {
 		$groupname = $_POST['group'];
-
 		require_once 'database.php';
 		$grpDb = new groupDB();
 		$groups = $grpDb->getGroups($groupname);
