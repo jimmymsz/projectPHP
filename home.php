@@ -18,8 +18,11 @@
 	if($_POST) {
 		$title = $_POST["title"];
 		$content = $_POST["content"];
+		$idgroup = "public";
+		if (isset($_POST['idgroup']))
+			$idgroup = $_POST['idgroup'];
 		if(strlen($title) != 0) {
-			if ($dbPost->insertPost($username, "public", $title, $content)) {
+			if ($dbPost->insertPost($username, $idgroup, $title, $content)) {
 				echo "<script>alert('post berhasil dimasukkan');</script>";
 			}
 		}
@@ -94,7 +97,7 @@
 				<h1 class="h1">Welcome <?php echo $username;?></h1>
 			</div>
 			<div id="content">
-			<a href="home.php">Return to home</a>
+			<a href="home.php">Return to home</a><br>
 				<?php
 					switch ($page) {
 						case 'profile':
@@ -103,17 +106,23 @@
 						case 'grup':
 							require_once 'grup.php';
 							break;
+						case 'newGroup':
+							require_once 'createGroup.php';
+							break;
 						default:
 							# code...
 							break;
 					} ?>
 				<h2>Create New Post</h2>
-				<form action="home.php" method="post">
+				<form method="post">
 					Title
 					<input type="text" name="title">
 					<br>
 					<textarea name="content"></textarea>
 					<br>
+					<?php if($page == 'grup') {?>
+						<input type="hidden" name="idgroup" value="<?php echo $idGroup?>">
+					<?php }?>
 					<input type="submit" name="submit" value="Save">
 				</form>
 				<br>

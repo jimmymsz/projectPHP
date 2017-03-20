@@ -94,10 +94,20 @@
 			$result = $result[0];
 			return $result;
 		}
+
+		function checkMember($username, $groupid) {
+			$query = "SELECT * FROM member WHERE userName = '$username' AND groupId = '$groupid'";
+			$result = $this->fetch($query);
+			if ($result) {
+				return $result[0];
+			} else {
+				return false;
+			}
+		}
 	}
 
 	class postDB extends Database {
-		public function insertPost($username, $group, $title, $content) {
+		function insertPost($username, $group, $title, $content) {
 			$timestamp = $this->getDateTime();
 			$query = "INSERT INTO post(userName,groupId, title, content, timestamp) VALUES (?, ?, ?, ?, ?)";
 			$stmt = $this->prepare($query);
@@ -112,6 +122,18 @@
 
 		function selectByGrp($groupid) {
 			$query = "SELECT * FROM post WHERE groupId = '$groupid' ORDER BY timestamp DESC";
+			return $this->fetch($query);
+		}
+
+		function selectPbl() {
+			$query = "SELECT * FROM post WHERE groupId = 'public' ORDER BY timestamp DESC";
+			return $this->fetch($query);
+		}
+	}
+
+	class groupDB extends Database {
+		function getGroups($groupname) {
+			$query = "SELECT * FROM forumgroup WHERE groupName LIKE '%$groupname%'";
 			return $this->fetch($query);
 		}
 	}

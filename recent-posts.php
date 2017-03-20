@@ -1,4 +1,7 @@
 <?php
+	require_once 'database.php';
+	$dbPost = new postDB();
+	$posts = $dbPost->selectPbl();
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +69,15 @@
 		</div>
 
 		<div class="contentWrapper">
-			
+			<h1 class="h1">Recent Posts</h1>
+			<?php foreach ($posts as $p) { ?>
+				<?php echo $p['userName'];?>:
+				<b><?php echo $p['title']; ?></b>
+				<br>
+				<?php echo $p['content']; ?>
+				<br>
+				<br>
+			<?php } ?>
 		</div>
 	</div>
 </body>

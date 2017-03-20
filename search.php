@@ -1,4 +1,16 @@
 <?php
+	if($_POST) {
+		$groupname = $_POST['group'];
+
+		require_once 'database.php';
+		$grpDb = new groupDB();
+		$groups = $grpDb->getGroups($groupname);
+	}
+
+	$page = "search";
+	if ($_GET) {
+		$page = $_GET['page'];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +78,29 @@
 		</div>
 
 		<div class="contentWrapper">
-			
+			<form method="POST" action="search.php">
+				Cari grup: <input type="text" name="group" required="true">
+				<input type="submit" name="submit" value="Cari">
+			</form>
+			<?php switch ($page) {
+				case 'grup':
+					require_once 'grup.php';
+					break;
+				default:
+					# code...
+					break;
+			}
+			?>
+			<?php if (isset($groups)) foreach ($groups as $g) { ?>
+				<ul>
+					<li><a href="search.php?page=grup&idGroup=<?php echo $g['idGroup'];?>"><?php echo $g['groupName'];?></li>
+				</ul>
+			<?php }
+				if(isset($_COOKIE["login"])) { ?>
+			<a href="home.php">Return to home</a>
+			<?php } else { ?>
+			<a href="recent-posts.php">Return to front page</a>
+			<?php } ?>
 		</div>
 	</div>
 </body>
