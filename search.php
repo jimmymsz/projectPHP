@@ -91,11 +91,14 @@
 					break;
 			}
 			?>
-			<?php if (isset($groups)) foreach ($groups as $g) { ?>
+			<?php if (count($groups)!=0) {
+				foreach ($groups as $g) { ?>
 				<ul>
 					<li><a href="search.php?page=grup&idGroup=<?php echo $g['idGroup'];?>"><?php echo $g['groupName'];?></li>
 				</ul>
-			<?php }
+			<?php }} else if (count($groups) == 0) {
+				echo "Grup tidak ditemukan<br>";
+			}
 				if(isset($_COOKIE["login"])) { ?>
 			<a href="home.php">Return to home</a>
 			<?php } else { ?>

@@ -12,10 +12,10 @@ if (count($groups) == 0) {
 	<ul>
 	<?php foreach ($groups as $g) { ?>
 		<li>
-			<a href="home.php?page=grup&idGroup=<?php echo $g['groupId'];?>"><?php echo $g['groupId']; ?></a>
+			<a href="home.php?page=group&idGroup=<?php echo $g['groupId'];?>"><?php echo $g['groupId']; ?></a>
 		</li>
-	</ul>
 	<?php } ?>
+	</ul>
 	<a href="search.php">Join a group</a>
 	or
 	<a href="home.php?page=newGroup">Create a group</a>

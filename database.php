@@ -87,6 +87,13 @@
 			return $this->fetch($query);
 		}
 
+		function insertMember($username, $idgroup) {
+			$username = $this->secure_input($username);
+			$idgroup = $this->secure_input($idgroup);
+			$query = "INSERT INTO member(userName, groupId) VALUES ('$username', '$idgroup')";
+			return $this->query($query);
+		}
+
 		function getGroups($userName) {
 			$query = "SELECT groupId FROM member WHERE userName = '$userName'";
 			return $this->fetch($query);
@@ -139,6 +146,17 @@
 		function getGroups($groupname) {
 			$query = "SELECT * FROM forumgroup WHERE groupName LIKE '%$groupname%'";
 			return $this->fetch($query);
+		}
+
+		function insertGroup($idgroup, $groupname, $groupadmin) {
+			$timestamp = $this->getDateTime();
+			$idgroup = $this->secure_input($idgroup);
+			$groupname = $this->secure_input($groupname);
+			$groupadmin = $this->secure_input($groupadmin);
+
+			$query = "INSERT INTO forumgroup(idGroup, groupName, totalUser, groupAdmin, timeStamp) VALUES ('$idgroup', '$groupname', 1, '$groupadmin', '$timestamp')";
+
+			return $this->query($query);
 		}
 	}
 ?>

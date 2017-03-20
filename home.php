@@ -13,9 +13,11 @@
 	$posts = $dbPost->selectByUsr($username);
 
 	$dbUsr = new userDB();
-	$groups = $dbUsr->getGroups($username);	 
+	$groups = $dbUsr->getGroups($username);
 
-	if($_POST) {
+	$dbGroup = new groupDB();
+
+	if($_POST && (strcmp($page, 'newGroup')!=0)) {
 		$title = $_POST["title"];
 		$content = $_POST["content"];
 		$idgroup = "public";
@@ -121,8 +123,8 @@
 					<br>
 					<textarea name="content"></textarea>
 					<br>
-					<?php if($page == 'grup') {?>
-						<input type="hidden" name="idgroup" value="<?php echo $idGroup?>">
+					<?php if($page == 'group') {?>
+						<input type="hidden" name="idgroup" value="<?php echo $idGroup; ?>">
 					<?php }?>
 					<input type="submit" name="submit" value="Save">
 				</form>
