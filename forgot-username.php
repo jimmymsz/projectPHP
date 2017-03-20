@@ -1,19 +1,11 @@
 <?php
-	$page = (isset($_GET['username'])? "un" : "pw");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<?php
-		if ($page=="un"){
-			echo"<title>Recover Username - Forum abc</title>";
-		}
-		else {
-			echo"<title>Recover Password - Forum abc</title>";
-		}
-	?>
+	<title>Recover Username - Forum abc</title>
 </head>
 <body class="abc-forgot-username-body">
 	<div id="abc">
@@ -76,14 +68,7 @@
 		<div class="contentWrapper">
 			<div>
 				<h1 class="h1">
-					<?php
-						if ($page=="un"){
-							echo"Recover abc Username";
-						}
-						else {
-							echo"Recover abc Password";
-						}
-					?>
+					Recover abc Username
 				</h1>
 			</div>
 			<div id="content">
@@ -101,8 +86,9 @@
 		              			<input type="submit" name="submit" value="Request Username">
 		              		</p>
 		              	</form>
+		              	
 	              		<p style="text-align: center">
-			              	 <a href="forgot-username.php">&nbsp;Forgot password?</a>
+			              	 <a href="forgot-password.php">&nbsp;Forgot password?</a>
 			            </p>
 		            </div>
 				</div>

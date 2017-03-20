@@ -15,10 +15,10 @@ if (count($groups) == 0) {
 			<a href="home.php?page=grup&idGroup=<?php echo $g['groupId'];?>"><?php echo $g['groupId']; ?></a>
 		</li>
 	</ul>
+	<?php } ?>
 	<a href="search.php">Join a group</a>
 	or
 	<a href="home.php?page=newGroup">Create a group</a>
-	<?php } ?>
 		<?php }
 		if (count($posts) == 0) {
 			echo "Empty post.<br>";

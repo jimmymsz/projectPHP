@@ -1,17 +1,36 @@
 <?php
+	session_start();
+
+	$failed_login = false;
+
 	if ($_POST) {
 		$username = $_POST["username"];
 		$password = $_POST["password"];
+		$use_cookie = $_POST["cookie"];
 
-		require_once "database.php";
+		require_once ("database.php");
 		$db = new userDB();
+
 		$user = $db->check_login($username, $password);
+
 		if ($user != -1) {
-			setcookie("login", $username, time() + 1000000);
+			if ($use_cookie == 1){
+				echo "<script>alert('DEBUG MODE: Cookie enabled');</script>";
+				setcookie("login", $username, time() + 1000000);
+			}
+
+			else {
+				echo "<script>alert('DEBUG MODE: NO Cookie');</script>";
+			}
+
 			echo "<script>window.location.href = 'home.php';</script>";
-		} else if ($user == -1) {
-			echo "username atau password salah";
 		}
+
+		else if ($user == -1) {
+			$failed_login = true;
+			//echo "<script>alert('username atau password salah');</script>";
+		}
+
 	}
 ?>
 
@@ -84,6 +103,14 @@
 				<h1 class="h1">Login to Forum abc</h1>
 			</div>
 			<div id="content">
+				<?php
+				if ($failed_login){
+					echo 
+					'<div class="badresult" style="background-color: #fae3e3; border: 2px solid #b25959; text-align: center; padding: 10px; margin:10px; font-family: Verdana;font-size: 11px">
+				        Your username or password is incorrect.
+				    </div>';
+				}
+			    ?>
 				<div id="login-box">
 					<form method="post" action="login.php">
 						<br>

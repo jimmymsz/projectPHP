@@ -3,7 +3,7 @@
 	if (isset($_COOKIE['login'])) {
 		$username = $_COOKIE['login'];
 	} else {
-		echo "<script>alert('anda belum login');</script>";
+		echo "<script>alert('Not logged in');</script>";
 		echo "<script>window.location.href = 'login.php';</script>";
 		exit();
 	}
@@ -50,6 +50,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="menu">
 			<div id="menu_left">
 				<ul id="navigation">
@@ -103,8 +104,8 @@
 						case 'profile':
 							require_once 'profile.php';
 							break;
-						case 'grup':
-							require_once 'grup.php';
+						case 'group':
+							require_once 'group.php';
 							break;
 						case 'newGroup':
 							require_once 'createGroup.php';
@@ -129,6 +130,31 @@
 				<a href="logout.php">Logout</a>		
 			</div>
 		</div>
+
+		<div class="footer">
+			<div id="footer-block">
+				<div id="footer-link-block">
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="">Home</a>
+					</p>
+					|
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="about.php" style="padding: 0 5px">About</a>
+						<a href="about.php?go=support" style="padding: 0 5px">Support</a>
+						<a href="advertising.php" style="padding: 0 5px">Advertising</a>
+						<a href="about.php?go=faqs" style="padding: 0 5px">FAQ</a>
+					</p>
+					|
+					<p style="padding: 0 10px; display: inline-block;">
+						<a href="login.php" style="padding: 0 5px">Login</a>
+						<a href="register.php" style="padding: 0 5px">Register</a>
+					</p>
+				</div>
+				<div id="blank" style="height:40px"></div>
+				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>

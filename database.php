@@ -53,12 +53,16 @@
 			$query = "SELECT userName, password, fullName FROM user WHERE userName = '$username'";
 			$result = $this->fetch($query);
 			if (!$result) {
-				echo "<script>window.location.href = 'login.php';</script>";
-				exit();
-			} 
-			$result = $result[0];
-			
-			return (password_verify($password, $result['password']) ? $result['userName'] : -1);
+				// BUG!
+				// echo "<script>window.location.href = 'login.php';</script>";
+				// exit();
+				return -1;
+			}
+			else {
+				$result = $result[0];
+				
+				return (password_verify($password, $result['password']) ? $result['userName'] : -1);
+			}
 		}
 
 		function insertUsr($username, $email, $fullname, $bday,$gender, $password) {

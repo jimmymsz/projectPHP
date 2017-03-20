@@ -107,7 +107,7 @@
 							<input type="fullname" name="fullname" size="20" maxlength="40" required="true">
 						</p>
 						<p>
-							Tanggal Lahir:
+							Birthday
 							<input type="date" name="bday">
 						</p>
 						<p>Gender
