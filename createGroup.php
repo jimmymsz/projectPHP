@@ -1,5 +1,5 @@
 <?php
-	if($_POST) {
+	if(isset($_POST['newGroup'])) {
 		$idgroup = $_POST['idgroup'];
 		$groupname = $_POST['groupname'];
 		if ($dbGroup->insertGroup($idgroup, $groupname, $username)) {
@@ -17,5 +17,5 @@
 <form method="POST">
 	Group id: <input type="text" name="idgroup"><br>
 	Nama group: <input type="text" name="groupname">
-	<input type="submit" name="submit" value="Buat Grup">
+	<input type="submit" name="newGroup" value="Buat Grup">
 </form>

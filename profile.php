@@ -4,7 +4,8 @@
 		<a href="login.php">Kembali ke halaman login</a>
 		<?php die();
 	}
-	
+	$posts = $dbPost->selectByUsr($username);
+
 if (count($groups) == 0) {
 			echo "You don't have any groups yet<br>"; ?>
 			<a href="search.php">Join a group</a>

@@ -158,5 +158,10 @@
 
 			return $this->query($query);
 		}
+
+		function updateMain($content, $groupid) {
+			$query = "UPDATE forumgroup SET mainPost = '$content' WHERE idGroup = '$groupid'";
+			return $this->query($query);
+		}
 	}
 ?>

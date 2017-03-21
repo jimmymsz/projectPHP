@@ -21,6 +21,8 @@
 
 			else {
 				echo "<script>alert('DEBUG MODE: NO Cookie');</script>";
+				setcookie("login", $username);
+
 			}
 
 			echo "<script>window.location.href = 'home.php';</script>";

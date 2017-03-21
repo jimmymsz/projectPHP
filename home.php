@@ -10,14 +10,12 @@
 	$page = isset($_GET['page']) ? $_GET['page'] : 'profile';
 	require_once "database.php";
 	$dbPost = new postDB();
-	$posts = $dbPost->selectByUsr($username);
 
 	$dbUsr = new userDB();
 	$groups = $dbUsr->getGroups($username);
 
-	$dbGroup = new groupDB();
 
-	if($_POST && (strcmp($page, 'newGroup')!=0)) {
+	if(isset($_POST['submit'])) {
 		$title = $_POST["title"];
 		$content = $_POST["content"];
 		$idgroup = "public";
