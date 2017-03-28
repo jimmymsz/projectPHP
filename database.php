@@ -95,7 +95,7 @@
 		}
 
 		function getGroups($userName) {
-			$query = "SELECT groupId FROM member WHERE userName = '$userName'";
+			$query = "SELECT groupId, groupName FROM member LEFT JOIN forumgroup ON member.groupId = forumgroup.idGroup WHERE member.userName = '$userName'";
 			return $this->fetch($query);
 		}
 

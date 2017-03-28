@@ -47,7 +47,7 @@
 	} else { ?> 
 		<ul>
 		<?php foreach ($members as $m) { ?> 
-			<li><?php echo $m['userName']; ?>
+			<li><a href="idx.php?page=persona&user=<?php echo $m['userName']; ?>"><?php echo $m['userName']; ?></a>
 				&nbsp
 				<?php if ($m['userName'] == $group['groupAdmin']) {
 					echo "(admin)";

@@ -1,41 +1,14 @@
 <?php
-	define('logon', 'logon');
-	if (isset($_COOKIE['login'])) {
-		$username = $_COOKIE['login'];
-	} else {
-		echo "<script>alert('Not logged in');</script>";
-		echo "<script>window.location.href = 'login.php';</script>";
-		exit();
-	}
-	$page = isset($_GET['page']) ? $_GET['page'] : 'profile';
-	require_once "database.php";
-	$dbPost = new postDB();
-
-	$dbUsr = new userDB();
-	$groups = $dbUsr->getGroups($username);
-
-
-	if(isset($_POST['submit'])) {
-		$title = $_POST["title"];
-		$content = $_POST["content"];
-		$idgroup = "public";
-		if (isset($_POST['idgroup']))
-			$idgroup = $_POST['idgroup'];
-		if(strlen($title) != 0) {
-			if ($dbPost->insertPost($username, $idgroup, $title, $content)) {
-				echo "<script>alert('post berhasil dimasukkan');</script>";
-			}
-		}
-	}	
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title><?php echo $username; ?>'s Page</title>
+	<title>abc - About</title>
 </head>
-<body>
-<div id="abc">
+<body class="abc-about-body">
+	<div id="abc">
 		<div class="header">
 			<div id="link-abc-logo">
 				<a class="abc-logo" href="index.php">
@@ -50,7 +23,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="menu">
 			<div id="menu_left">
 				<ul id="navigation">
@@ -94,43 +66,18 @@
 		</div>
 
 		<div class="contentWrapper">
-			<div>
-				<h1 class="h1">Welcome <?php echo $username;?></h1>
-			</div>
+			<?php 
+			$page = $_GET['page'];
+			switch ($page) {
+				case 'persona':
+					require_once 'persona.php';
+					break;
+				default:
+					# code...
+					break;
+			}
+			?>
 			<div id="content">
-			<a href="home.php">Return to home</a><br>
-				<?php
-					switch ($page) {
-						case 'profile':
-							require_once 'profile.php';
-							break;
-						case 'group':
-							require_once 'group.php';
-							break;
-						case 'newGroup':
-							require_once 'createGroup.php';
-							break;
-						case 'persona':
-							require_once 'persona.php';
-							break;	
-						default:
-							# code...
-							break;
-					} ?>
-				<h2>Create New Post</h2>
-				<form method="post">
-					Title
-					<input type="text" name="title">
-					<br>
-					<textarea name="content"></textarea>
-					<br>
-					<?php if($page == 'group') {?>
-						<input type="hidden" name="idgroup" value="<?php echo $idGroup; ?>">
-					<?php }?>
-					<input type="submit" name="submit" value="Save">
-				</form>
-				<br>
-				<a href="logout.php">Logout</a>		
 			</div>
 		</div>
 
@@ -157,7 +104,6 @@
 				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
 			</div>
 		</div>
-
 	</div>
 </body>
 </html>
