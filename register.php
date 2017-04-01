@@ -25,15 +25,15 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>abc - Register Page</title>
+	<title>zeta - Register Page</title>
 </head>
-<body class="abc-register-body">
-	<div id="abc">
+<body class="zeta-register-body">
+	<div id="zeta">
 		<div class="header">
-			<div id="link-abc-logo">
-				<a class="abc-logo" href="index.php">
-					<img class="logo-img" src="logo.png" alt="abc" height="100" width="130">
-					<span id="abc-title-logo">Forum abc</span>
+			<div id="link-zeta-logo">
+				<a class="zeta-logo" href="index.php">
+					<img class="logo-img" src="logo.png" alt="zeta" height="100" width="130">
+					<span id="zeta-title-logo">Forum zeta</span>
 				</a>
 			</div>
 			<div id="header-menu">
@@ -87,7 +87,7 @@
 
 		<div class="contentWrapper">
 			<div>
-				<h1 class="h1">Register to Forum abc</h1>
+				<h1 class="h1">Register to Forum zeta</h1>
 			</div>
 
 			<div id="content">
@@ -95,7 +95,7 @@
 					<form method="POST" action="register.php">
 						<br>
 						<h1 style="font-size: 22px; font-family: Verdana,Arial; padding-bottom: 0px">Register </h1>
-						<p>Join and Start Using Forum abc today</p>
+						<p>Join and Start Using Forum zeta today</p>
 						<br>
 						<p>Email
 							<input type="email" name="email" size="20" maxlength="30" required="true">

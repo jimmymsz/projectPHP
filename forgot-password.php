@@ -5,15 +5,15 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Recover Password - Forum abc</title>
+	<title>Recover Password - Forum zeta</title>
 </head>
-<body class="abc-forgot-password-body">
-	<div id="abc">
+<body class="zeta-forgot-password-body">
+	<div id="zeta">
 		<div class="header">
-			<div id="link-abc-logo">
-				<a class="abc-logo" href="index.php">
-					<img class="logo-img" src="logo.png" alt="abc" height="100" width="130">
-					<span id="abc-title-logo">Forum abc</span>
+			<div id="link-zeta-logo">
+				<a class="zeta-logo" href="index.php">
+					<img class="logo-img" src="logo.png" alt="zeta" height="100" width="130">
+					<span id="zeta-title-logo">Forum zeta</span>
 				</a>
 			</div>
 			<div id="header-menu">
@@ -68,7 +68,7 @@
 		<div class="contentWrapper">
 			<div>
 				<h1 class="h1">
-					Recover abc Password
+					Recover zeta Password
 				</h1>
 			</div>
 			<div id="content">
@@ -116,7 +116,7 @@
 					</p>
 				</div>
 				<div id="blank" style="height:40px"></div>
-				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum abc -- All Rights Reserved.</div>
+				<div id="copyright" style="color: black; font-size:13.5px; padding-bottom: 15px">©2017 -- Forum zeta -- All Rights Reserved.</div>
 			</div>
 		</div>
 	</div>

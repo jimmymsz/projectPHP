@@ -8,15 +8,15 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>abc</title>
+	<title>zeta</title>
 </head>
-<body class="abc-recent-posts-body">
-	<div id="abc">
+<body class="zeta-recent-posts-body">
+	<div id="zeta">
 		<div class="header">
-			<div id="link-abc-logo">
-				<a class="abc-logo" href="index.php">
-					<img class="logo-img" src="logo.png" alt="abc" height="100" width="130">
-					<span id="abc-title-logo">Forum abc</span>
+			<div id="link-zeta-logo">
+				<a class="zeta-logo" href="index.php">
+					<img class="logo-img" src="logo.png" alt="zeta" height="100" width="130">
+					<span id="zeta-title-logo">Forum zeta</span>
 				</a>
 			</div>
 			<div id="header-menu">

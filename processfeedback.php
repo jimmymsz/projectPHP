@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>abc - Feedback Submitted</title>
+	<title>zeta - Feedback Submitted</title>
 </head>
 <body>
 	<h1>Feedback submitted</h1>
