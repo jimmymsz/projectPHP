@@ -6,8 +6,10 @@
 	if ($_POST) {
 		$username = $_POST["username"];
 		$password = $_POST["password"];
-		$use_cookie = $_POST["cookie"];
-
+		if(isset($_POST["cookie"]))
+			$use_cookie = $_POST["cookie"];
+		else
+			$use_cookie = "";
 		require_once ("database.php");
 		$db = new userDB();
 

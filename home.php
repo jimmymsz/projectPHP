@@ -44,10 +44,18 @@
 				</a>
 			</div>
 			<div id="header-menu">
+			<?php if (!isset($_COOKIE['login'])) { ?>
+			<div id="header-menu">
 				<div class="header-menu-login">
 					<a class="btnLogin" href="login.php">Login</a>
 					<a class="btnRegister" href="register.php">Register</a>
 				</div>
+			</div>
+			<?php } else { ?>
+				<div class="header-menu-login">
+					<a class="btnLogin" href="logout.php">Logout</a>
+				</div>
+			<?php } ?>
 			</div>
 		</div>
 

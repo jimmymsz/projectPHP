@@ -1,23 +1,39 @@
 <?php
+	$err = array();
 	if ($_POST) {
 		$username = $_POST['username'];
+		$username = trim($username);
 		$email = $_POST['email'];
+		$email = trim($email);
 		$fullname = $_POST['fullname'];
+		$fullname = trim($fullname);
 		$bday = $_POST['bday'];
+		$bday = trim($bday);
 		$gender = $_POST['gender'];
+		$gender = trim($gender);
 		$password = $_POST['password'];
-		
+		$password = trim($password);
+
 		require_once 'database.php';
 		$db = new userDB();
 
 		$result = $db->insertUsr($username, $email, $fullname, $bday,$gender, $password);
-		if ($result == 1) {
-			echo "<script>alert('Registrasi berhasil!')</script>";
+		if ($result == -1) {
+			// echo "<script>alert('username $username telah tersedia')</script>";
+			array_push($err, "username $username telah tersedia");
+		}
+		if (strlen(trim($password)) < 6) array_push($err, '\npassword minimal 6 karakter\n');
+		if (count($err) == 0) {
+			echo "<script>alert('Registrasi berhasil!');</script>";
 			header("Location: login.php");
 			exit();
-		} else if ($result == -1) {
-			echo "$username telah tersedia";
-		}	
+		} else {
+			$error = "";
+			foreach ($err as $e) {
+				$error = $error . $e;
+			}
+			echo "<script>alert('$error');</script>";
+		}
 	}
 ?>
 
@@ -108,7 +124,7 @@
 						</p>
 						<p>
 							Birthday
-							<input type="date" name="bday">
+							<input type="date" name="bday" required="true">
 						</p>
 						<p>Gender
 							<select name="gender" required="true">

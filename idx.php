@@ -1,11 +1,12 @@
 <?php
+	$page = $_GET['page'];
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>abc - About</title>
+	<title>abc - <?php echo $page; ?></title>
 </head>
 <body class="abc-about-body">
 	<div id="abc">
@@ -17,10 +18,18 @@
 				</a>
 			</div>
 			<div id="header-menu">
+			<?php if (!isset($_COOKIE['login'])) { ?>
+			<div id="header-menu">
 				<div class="header-menu-login">
 					<a class="btnLogin" href="login.php">Login</a>
 					<a class="btnRegister" href="register.php">Register</a>
 				</div>
+			</div>
+			<?php } else { ?>
+				<div class="header-menu-login">
+					<a class="btnLogin" href="logout.php">Logout</a>
+				</div>
+			<?php } ?>
 			</div>
 		</div>
 		<div class="menu">
@@ -67,10 +76,12 @@
 
 		<div class="contentWrapper">
 			<?php 
-			$page = $_GET['page'];
 			switch ($page) {
 				case 'persona':
 					require_once 'persona.php';
+					break;
+				case 'delPos':
+					require_once 'deletePost.php';
 					break;
 				default:
 					# code...

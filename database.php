@@ -126,6 +126,12 @@
 			return $stmt->execute();	
 		}
 
+		function getPost($postId) {
+			$query = "SELECT * FROM post WHERE idPost = $postId";
+			$result = $this->fetch($query);
+			return $result[0];
+		}
+
 		function selectByUsr($username) {
 			$query = "SELECT * FROM post WHERE userName = '$username' ORDER BY timestamp ASC";
 			return $this->fetch($query);
@@ -139,6 +145,12 @@
 		function selectPbl() {
 			$query = "SELECT * FROM post WHERE groupId = 'public' ORDER BY timestamp DESC";
 			return $this->fetch($query);
+		}
+
+		function deletePost($postId) {
+			$postId = intval($this->secure_input($postId));
+			$query = "DELETE FROM post WHERE idPost = '$postId'";
+			return $this->query($query);
 		}
 	}
 
@@ -161,6 +173,11 @@
 
 		function updateMain($content, $groupid) {
 			$query = "UPDATE forumgroup SET mainPost = '$content' WHERE idGroup = '$groupid'";
+			return $this->query($query);
+		}
+
+		function deleteMember($username, $groupid) {
+			$query = "DELETE FROM member WHERE username = '$username' AND groupId = '$groupid'";
 			return $this->query($query);
 		}
 	}

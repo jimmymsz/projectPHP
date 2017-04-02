@@ -6,7 +6,7 @@
 	}
 	$posts = $dbPost->selectByUsr($username); ?>
 
-	<a href="idx.php?page=persona&user=<?php echo $username; ?>">Check or edit your profile</a>
+	<a href="indexx.php?page=persona&user=<?php echo $username; ?>">Check or edit your profile</a>
 <?php	if (count($groups) == 0) {
 			echo "You don't have any groups yet<br>"; ?>
 <?php } else { ?>
@@ -34,6 +34,8 @@
 				Group: <?php echo $p['groupId']?>
 				<br>
 				<?php echo $p['content']; ?>
+				<br>
+				<a href="index.php?page=delPos&postId=<?php echo $p['idPost']; ?>">delete</a>
 			</div>
 			<br>
 		<?php } ?>

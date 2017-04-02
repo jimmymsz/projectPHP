@@ -1,5 +1,5 @@
 <?php
-	echo "<script>alert('Welcome!');</script>"
+	
 ?>
 
 
@@ -68,12 +68,29 @@
 		</div>
 
 		<div class="contentWrapper">
+			
+			<?php
+			if (isset($_GET['page'])) {
+				$page = $_GET['page']; 
+				switch ($page) {
+					case 'persona':
+						require_once 'persona.php';
+						break;
+					case 'delPos':
+						require_once 'deletePost.php';
+						break;
+					default:
+						# code...
+						break;
+				}
+			} else { ?>
 			<div>
 				<h1 class="h1">Welcome to Forum abc</h1>
 			</div>
 			<div id="content">
 				<div class="side" style="float: left; background-color: red; width:260px;height: 600px; display: inline-block;" ></div>
 				<div class="main" style="float; right; background-color: lightgreen;width:800px; height: 600px; display: inline-block;"></div>
+			<?php } ?>				
 			</div>
 		</div>
 

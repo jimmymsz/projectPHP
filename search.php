@@ -27,12 +27,14 @@
 					<span id="abc-title-logo">Forum abc</span>
 				</a>
 			</div>
+			<?php if (!isset($_COOKIE['login'])) { ?>
 			<div id="header-menu">
 				<div class="header-menu-login">
 					<a class="btnLogin" href="login.php">Login</a>
 					<a class="btnRegister" href="register.php">Register</a>
 				</div>
 			</div>
+			<?php } ?>
 		</div>
 		<div class="menu">
 			<div id="menu_left">
