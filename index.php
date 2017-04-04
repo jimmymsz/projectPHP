@@ -1,5 +1,5 @@
 <?php
-	
+	session_start();
 ?>
 
 
@@ -20,8 +20,12 @@
 			</div>
 			<div id="header-menu">
 				<div class="header-menu-login">
+				<?php if (!isset($_SESSION['login'])) { ?>
 					<a class="btnLogin" href="login.php">Login</a>
 					<a class="btnRegister" href="register.php">Register</a>
+				<?php } else { ?>
+					<a class="btnLogin" href="logout.php">Logout</a>
+				<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -70,8 +74,9 @@
 		<div class="contentWrapper">
 			
 			<?php
-			if (isset($_GET['page'])) {
-				$page = $_GET['page']; 
+			if (isset($_GET['page']) && isset($_SESSION['login'])) {
+				$page = $_GET['page'];
+				require_once 'database.php'; 
 				switch ($page) {
 					case 'persona':
 						require_once 'persona.php';
@@ -79,11 +84,15 @@
 					case 'delPos':
 						require_once 'deletePost.php';
 						break;
+					case 'task':
+						require_once 'task.php';
+						break;
 					default:
 						# code...
-						break;
-				}
-			} else { ?>
+						break;  
+				} ?>
+			<a href="home.php">Return home</a>
+			<?php } else { ?>
 			<div>
 				<h1 class="h1">Welcome to Forum zeta</h1>
 			</div>

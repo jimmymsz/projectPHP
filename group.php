@@ -8,9 +8,12 @@
 	if (!isset($username)) $username = '';
 	if ($username == $group['groupAdmin']) $admin = true;
 	if (!isset($username)) $username = '';
-	if (isset($_COOKIE['login'])) $username = $_COOKIE['login'];
+	if (isset($_SESSION['login'])) $username = $_SESSION['login'];
 	$res = $dbUsr->checkMember($username, $idGroup);
 	$dbGroup = new groupDB();
+
+	$dbTask = new taskDB();
+	$tasks = $dbTask->getTask($idGroup, 0);
 
 	if (isset($_POST['join'])) {
 		if (strcmp($username, '') == 0) {
@@ -77,6 +80,15 @@
 			</form>
 		<?php } ?>
 	<?php } ?>
+	<h2>Pending Task</h2>
+	<?php if (count($tasks) == 0) {
+		echo "you don't have any tasks";
+	} else { 
+		$total = count($tasks);
+		echo "you still have $total pending tasks"; ?>
+	<?php } ?>
+	<br>
+	<a href="index.php?page=task&group=<?php echo $idGroup; ?>&usr=<?php echo $username ;?>">Manage task</a>
 	<h2>Recent posts:</h2>
 	<?php if (count($groupPosts) == 0) {
 			echo "Empty post.<br>";

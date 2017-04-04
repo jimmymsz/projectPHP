@@ -6,7 +6,7 @@
 	}
 	$posts = $dbPost->selectByUsr($username); ?>
 
-	<a href="indexx.php?page=persona&user=<?php echo $username; ?>">Check or edit your profile</a>
+	<a href="index.php?page=persona&user=<?php echo $username; ?>">Check or edit your profile</a>
 <?php	if (count($groups) == 0) {
 			echo "You don't have any groups yet<br>"; ?>
 <?php } else { ?>

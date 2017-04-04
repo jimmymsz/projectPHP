@@ -181,4 +181,26 @@
 			return $this->query($query);
 		}
 	}
+
+	class taskDB extends Database {
+		function insert($name, $detail, $username, $groupid) {
+			$name = $this->secure_input($name);
+			$detail = $this->secure_input($detail);
+			$status = $this->secure_input($detail);
+			$username = $this->secure_input($username);
+			$timeStamp = $this->getDateTime();
+			$query = "INSERT INTO grouptask(taskName, taskDetail, status, username, groupid, timeStamp) VALUES ('$name', '$detail', 0, '$username', '$groupid' ,'$timeStamp')";
+			return $this->query($query);
+		}
+
+		function getTask($groupid, $status) {
+			$query = "SELECT * FROM grouptask WHERE groupid = '$groupid' AND status = '$status'";
+			return $this->fetch($query);
+		}
+
+		function statChg($taskid, $status) {
+			$query = "UPDATE grouptask SET status = '$status' WHERE taskId = '$taskid'";
+			return $this->query($query);
+		}
+	}
 ?>

@@ -1,7 +1,9 @@
 <?php
+	session_start();
+	
 	define('logon', 'logon');
-	if (isset($_COOKIE['login'])) {
-		$username = $_COOKIE['login'];
+	if (isset($_SESSION['login'])) {
+		$username = $_SESSION['login'];
 	} else {
 		echo "<script>alert('Not logged in');</script>";
 		echo "<script>window.location.href = 'login.php';</script>";
@@ -44,8 +46,7 @@
 				</a>
 			</div>
 			<div id="header-menu">
-			<?php if (!isset($_COOKIE['login'])) { ?>
-			<div id="header-menu">
+			<?php if (!isset($_SESSION['login'])) { ?>
 				<div class="header-menu-login">
 					<a class="btnLogin" href="login.php">Login</a>
 					<a class="btnRegister" href="register.php">Register</a>
@@ -117,9 +118,6 @@
 							break;
 						case 'newGroup':
 							require_once 'createGroup.php';
-							break;
-						case 'persona':
-							require_once 'persona.php';
 							break;	
 						default:
 							# code...

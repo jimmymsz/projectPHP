@@ -1,6 +1,8 @@
 <?php
 	session_start();
-
+	if(isset($_SESSION['login'])) {
+		echo "<script>window.location.href = 'home.php';</script>";
+	}
 	$failed_login = false;
 
 	if ($_POST) {
@@ -16,6 +18,7 @@
 		$user = $db->check_login($username, $password);
 
 		if ($user != -1) {
+			$_SESSION['login'] = $username;
 			if ($use_cookie == 1){
 				echo "<script>alert('DEBUG MODE: Cookie enabled');</script>";
 				setcookie("login", $username, time() + 1000000);

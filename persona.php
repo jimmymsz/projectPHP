@@ -1,6 +1,9 @@
 <?php
-	if (isset($_COOKIE['login'])) {
-		$username = $_COOKIE['login'];
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
+	if (isset($_SESSION['login'])) {
+		$username = $_SESSION['login'];
 	} else { ?>
 		<h1>Restricted access!</h1>
 		<a href="login.php">Kembali ke halaman login</a>

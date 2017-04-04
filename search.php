@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	if(isset($_POST['submit'])) {
 		$groupname = $_POST['group'];
 		require_once 'database.php';
@@ -27,14 +28,16 @@
 					<span id="zeta-title-logo">Forum zeta</span>
 				</a>
 			</div>
-			<?php if (!isset($_COOKIE['login'])) { ?>
 			<div id="header-menu">
 				<div class="header-menu-login">
+				<?php if (!isset($_SESSION['login'])) { ?>
 					<a class="btnLogin" href="login.php">Login</a>
 					<a class="btnRegister" href="register.php">Register</a>
+				<?php } else { ?>
+					<a class="btnLogin" href="logout.php">Logout</a>
+				<?php } ?>
 				</div>
 			</div>
-			<?php } ?>
 		</div>
 		<div class="menu">
 			<div id="menu_left">
@@ -100,7 +103,7 @@
 			<?php }} else if (isset($groups) && count($groups) == 0) {
 				echo "Grup tidak ditemukan<br>";
 			}
-				if(isset($_COOKIE["login"])) { ?>
+				if(isset($_SESSION["login"])) { ?>
 			<a href="home.php">Return to home</a>
 			<?php } else { ?>
 			<a href="recent-posts.php">Return to front page</a>
