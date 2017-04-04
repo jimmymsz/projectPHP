@@ -64,6 +64,12 @@
 				return (password_verify($password, $result['password']) ? $result['userName'] : -1);
 			}
 		}
+		function getEmail($email) {
+			$query = "SELECT * FROM user WHERE email = '$email'";
+			$result = $this->fetch($query);
+			if (!$result) return -1;
+			return $result[0];
+		}
 
 		function insertUsr($username, $email, $fullname, $bday,$gender, $password) {
 			$timestamp = $this->getDateTime();
@@ -76,7 +82,8 @@
 			$chk = $this->getUsr($username);
 			if ($chk == -1) {
 				$query = "INSERT INTO user(userName, email, fullName, birthDay, gender, passWord, timestamp) VALUES ('$username', '$email', '$fullname','$bday', '$gender','$password', '$timestamp')";
-				return $this->query($query);
+				$result = $this->query($query);
+				return 1;
 			} else {
 				return -1;
 			}

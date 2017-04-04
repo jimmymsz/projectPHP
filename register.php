@@ -21,16 +21,17 @@
 		require_once 'database.php';
 		$db = new userDB();
 
-		$result = $db->insertUsr($username, $email, $fullname, $bday,$gender, $password);
-		if ($result == -1) {
-			// echo "<script>alert('username $username telah tersedia')</script>";
-			array_push($err, "username $username telah tersedia");
-		}
+		if ($db->getUsr($username) != -1) array_push($err, "username $username telah tersedia");
 		if (strlen(trim($password)) < 6) array_push($err, '\npassword minimal 6 karakter\n');
+		if ($db->getEmail($email) != -1) array_push($err, "email sudah tersedia");
 		if (count($err) == 0) {
-			echo "<script>alert('Registrasi berhasil!');</script>";
-			header("Location: login.php");
-			exit();
+			$result = $db->insertUsr($username, $email, $fullname, $bday,$gender, $password);
+			if ($result == 1) {
+				echo "<script>alert('Registrasi berhasil!');</script>";
+				header("Location: login.php");
+			} else {
+				echo "<script>alert('Gagal registrasi');</script>";
+			}
 		} else {
 			$error = "";
 			foreach ($err as $e) {
@@ -128,7 +129,7 @@
 						</p>
 						<p>
 							Birthday
-							<input type="date" name="bday" required="true">
+							<input type="date" name="bday" required="true" placeholder="YYYY-MM-DD">
 						</p>
 						<p>Gender
 							<select name="gender" required="true">

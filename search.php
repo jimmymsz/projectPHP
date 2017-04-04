@@ -103,7 +103,7 @@
 					
 			?>
 			<ul>
-			<?php if(!isset($groups) || isset($_POST['all'])) foreach ($grup as $g) { ?>
+			<?php if(isset($_POST['all'])) foreach ($grup as $g) { ?>
 				<li>
 					<a href="search.php?page=grup&idGroup=<?php echo $g['idGroup'];?>"><?php echo $g['groupName']; ?></a>
 				</li>
