@@ -88,17 +88,17 @@
 						require_once 'task.php';
 						break;
 					default:
-						# code...
 						break;  
 				} ?>
 			<a href="home.php">Return home</a>
 			<?php } else { ?>
-			<div>
+			<?php echo "<script>window.location.href='login.php';</script>"; ?>
+			<!-- <div>
 				<h1 class="h1">Welcome to Forum zeta</h1>
 			</div>
 			<div id="content">
 				<div class="side" style="float: left; background-color: red; width:260px;height: 600px; display: inline-block;" ></div>
-				<div class="main" style="float; right; background-color: lightgreen;width:800px; height: 600px; display: inline-block;"></div>
+				<div class="main" style="float; right; background-color: lightgreen;width:800px; height: 600px; display: inline-block;"></div> -->
 			<?php } ?>				
 			</div>
 		</div>

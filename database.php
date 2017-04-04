@@ -89,6 +89,23 @@
 			}
 		}
 
+		function updateUser($username, $fname, $email, $gender, $bday, $newpass) {
+			$username = $this->secure_input($username);
+			$fname = $this->secure_input($fname);
+			$email = $this->secure_input($email);
+			$gender = $this->secure_input($gender);
+			$bday = $this->secure_input($bday);
+			if(strcmp("$newpass", "") != 0) {
+				$newpass = $this->secure_input($newpass);
+				$newpass = password_hash($newpass, PASSWORD_DEFAULT);
+				$query = "UPDATE user SET fullName = '$fname', email = '$email', gender = '$gender', birthDay = '$bday', passWord = '$newpass' WHERE userName = '$username'";
+			} else {
+				$query = "UPDATE user SET fullName = '$fname', email = '$email', gender = '$gender', birthDay = '$bday' WHERE userName = '$username'";
+			}
+			
+			return $this->query($query);
+		}
+
 		function getMembers($groupId) {
 			$query = "SELECT memberId, userName FROM member WHERE groupId = '$groupId'";
 			return $this->fetch($query);

@@ -9,21 +9,47 @@
 		<a href="login.php">Kembali ke halaman login</a>
 		<?php die();
 	}
-	if (isset($_POST['persona'])) {
-		if ($_POST['oldPass'] && $_POST['newPass']) {
-			echo "update password";
-		} else if($_POST['oldPass']) {
-			echo "tolong isi password baru";
-		} else if($_POST['newPass']) {
-			echo "tolong isi password lama";
-		}
-	}
-
+	$err = array();
 	$user = $_GET['user'];
 	require_once 'database.php';
 	$dbUser = new userDB();
-	$thisUser = $dbUser->getUsr($user); ?>
-	<a href="home.php">Return to home</a>
+	$thisUser = $dbUser->getUsr($user); 
+
+	if (isset($_POST['persona'])) {
+		$fname = trim($_POST['fname']);
+		$email = trim($_POST['email']);
+		$gender = trim($_POST['gender']);
+		$bday = trim($_POST['bday']);
+		$oldPass = trim($_POST['oldPass']);
+		$newPass = trim($_POST['newPass']);
+		if ($_POST['oldPass'] && $_POST['newPass']) {
+			$res = $dbUser->check_login($user, $oldPass);
+			if ($res == -1) {
+				array_push($err, 'password lama salah\n');
+			} else {
+				if ($dbUser->updateUser($user, $fname, $email, $gender, $bday, $newPass)) {
+					$uri = $_SERVER['REQUEST_URI'];
+					echo "<script>alert('update data berhasil');</script>";
+					echo "<script>window.location.href='$uri';</script>";
+				} else {
+					echo "<script>alert('update data gagal');</script>";
+				}
+			}
+		} else if($_POST['oldPass']) {
+			echo "<script>alert('tolong isi password baru');</script>";
+		} else if($_POST['newPass']) {
+			echo "<script>alert('tolong isi password lama');</script>";
+		} else {
+			if ($dbUser->updateUser($user, $fname, $email, $gender, $bday, $newPass)) {
+				$uri = $_SERVER['REQUEST_URI'];
+				echo "<script>alert('update data berhasil');</script>";
+				echo "<script>window.location.href='$uri';</script>";
+			} else {
+				echo "<script>alert('update data gagal');</script>";
+			}
+		}
+	}
+	?>
 <?php if ($username == $user) {
 ?>
 

@@ -16,6 +16,7 @@
 	$dbUsr = new userDB();
 	$groups = $dbUsr->getGroups($username);
 
+	$dbGroup = new groupDB();
 
 	if(isset($_POST['submit'])) {
 		$title = $_POST["title"];
@@ -127,6 +128,7 @@
 							# code...
 							break;
 					} ?>
+				<?php if (strcmp($page, "newGroup") != 0) { ?>
 				<h2>Create New Post</h2>
 				<form method="post">
 					Title
@@ -139,6 +141,7 @@
 					<?php }?>
 					<input type="submit" name="submit" value="Save">
 				</form>
+				<?php } ?>
 				<br>
 				<a href="logout.php">Logout</a>		
 			</div>

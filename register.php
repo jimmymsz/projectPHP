@@ -22,8 +22,8 @@
 		$db = new userDB();
 
 		if ($db->getUsr($username) != -1) array_push($err, "username $username telah tersedia");
-		if (strlen(trim($password)) < 6) array_push($err, '\npassword minimal 6 karakter\n');
-		if ($db->getEmail($email) != -1) array_push($err, "email sudah tersedia");
+		if (strlen(trim($password)) < 6) array_push($err, '\npassword minimal 6 karakter');
+		if ($db->getEmail($email) != -1) array_push($err, '\nemail sudah tersedia');
 		if (count($err) == 0) {
 			$result = $db->insertUsr($username, $email, $fullname, $bday,$gender, $password);
 			if ($result == 1) {
