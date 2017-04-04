@@ -6,7 +6,9 @@
 	$usr = $_GET['usr'];
 	$tasks = $dbTask->getTask($groupid, 0);
 	$done = $dbTask->getTask($groupid, 1);
-
+	$group = $dbUser->getGroup($groupid);
+	$admin = false;
+	if ($usr == $group['groupAdmin']) $admin = true;
 	if (isset($_POST['task'])) {
 		$name = $_POST['name'];
 		$detail = $_POST['detail'];
@@ -22,7 +24,9 @@
 		$status = 1;
 		
 		if ($dbTask->statChg($taskid, $status)) {
+			$uri = $_SERVER['REQUEST_URI'];
 			echo "<script>alert('update berhasil');</script>";
+			echo "<script>window.location.href='$uri';</script>";
 		} else {
 			echo "<script>alert('update gagal');</script>";
 		}
@@ -69,6 +73,7 @@
 		<?php } ?>
 	<?php } ?>
 </ul>
+<?php if ($admin) { ?>
 <h2>Add new Task</h2>
 <form method="post">
 	Task Name:
@@ -84,3 +89,4 @@
 	</select>
 	<input type="submit" name="task" value="Save">
 </form>
+<?php } ?>

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once 'database.php';
 	$dbPost = new postDB();
 	$posts = $dbPost->selectPbl();
@@ -14,7 +15,11 @@
 	<div id="zeta">
 		<div class="header">
 			<div id="link-zeta-logo">
-				<a class="zeta-logo" href="index.php">
+				<?php if (isset($_SESSION['login'])) { ?>
+					<a class="zeta-logo" href="home.php">
+				<?php } else { ?>
+					<a class="zeta-logo" href="index.php">
+				<?php } ?>
 					<img class="logo-img" src="logo.png" alt="zeta" height="100" width="130">
 					<span id="zeta-title-logo">Forum zeta</span>
 				</a>

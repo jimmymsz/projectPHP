@@ -87,6 +87,11 @@
 			return $this->fetch($query);
 		}
 
+		function getMember($groupId, $username) {
+			$query = "SELECT memberId, userName FROM member WHERE groupId = '$groupId' AND userName = '$username'";
+			return $this->fetch($query);
+		}
+
 		function insertMember($username, $idgroup) {
 			$username = $this->secure_input($username);
 			$idgroup = $this->secure_input($idgroup);
@@ -114,6 +119,11 @@
 			} else {
 				return false;
 			}
+		}
+
+		function delMemb($username, $groupid) {
+			$query = "DELETE FROM member WHERE userName = '$username' AND groupId = '$groupid'";
+			return $this->query($query);
 		}
 	}
 
@@ -157,6 +167,11 @@
 	class groupDB extends Database {
 		function getGroups($groupname) {
 			$query = "SELECT * FROM forumgroup WHERE groupName LIKE '%$groupname%'";
+			return $this->fetch($query);
+		}
+
+		function getAll() {
+			$query = "SELECT * FROM forumgroup";
 			return $this->fetch($query);
 		}
 

@@ -1,9 +1,10 @@
 <?php
 	session_start();
+	require_once 'database.php';
+	$grpDb = new groupDB();
+	$grup = $grpDb->getAll();
 	if(isset($_POST['submit'])) {
 		$groupname = $_POST['group'];
-		require_once 'database.php';
-		$grpDb = new groupDB();
 		$groups = $grpDb->getGroups($groupname);
 	}
 
@@ -23,7 +24,11 @@
 	<div id="zeta">
 		<div class="header">
 			<div id="link-zeta-logo">
-				<a class="zeta-logo" href="index.php">
+				<?php if (isset($_SESSION['login'])) { ?>
+					<a class="zeta-logo" href="home.php">
+				<?php } else { ?>
+					<a class="zeta-logo" href="index.php">
+				<?php } ?>
 					<img class="logo-img" src="logo.png" alt="zeta" height="100" width="130">
 					<span id="zeta-title-logo">Forum zeta</span>
 				</a>
@@ -86,15 +91,24 @@
 				Cari grup: <input type="text" name="group" required="true">
 				<input type="submit" name="submit" value="Cari">
 			</form>
+			or search
+			<form method="POST" action="search.php">
+				<input type="submit" name="all" value="All Groups">
+			</form>
 			<?php switch ($page) {
 				case 'grup':
 					require_once 'group.php';
 					break;
 				default:
-					# code...
-					break;
-			}
+					
 			?>
+			<ul>
+			<?php if(!isset($groups) || isset($_POST['all'])) foreach ($grup as $g) { ?>
+				<li>
+					<a href="search.php?page=grup&idGroup=<?php echo $g['idGroup'];?>"><?php echo $g['groupName']; ?></a>
+				</li>
+			<?php } ?>
+			</ul>
 			<?php if (isset($groups) && count($groups)!=0) {
 				foreach ($groups as $g) { ?>
 				<ul>
@@ -107,7 +121,8 @@
 			<a href="home.php">Return to home</a>
 			<?php } else { ?>
 			<a href="recent-posts.php">Return to front page</a>
-			<?php } ?>
+			<?php }
+				break; } ?>
 		</div>
 	</div>
 </body>
