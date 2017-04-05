@@ -8,10 +8,10 @@
 	if ($_POST) {
 		$username = $_POST["username"];
 		$password = $_POST["password"];
-		if(isset($_POST["cookie"]))
-			$use_cookie = $_POST["cookie"];
-		else
-			$use_cookie = "";
+		// if(isset($_POST["cookie"]))
+		// 	$use_cookie = $_POST["cookie"];
+		// else
+		// 	$use_cookie = "";
 		require_once ("database.php");
 		$db = new userDB();
 
@@ -19,16 +19,16 @@
 
 		if ($user != -1) {
 			$_SESSION['login'] = $username;
-			if ($use_cookie == 1){
-				echo "<script>alert('DEBUG MODE: Cookie enabled');</script>";
-				setcookie("login", $username, time() + 1000000);
-			}
+			// if ($use_cookie == 1){
+			// 	echo "<script>alert('DEBUG MODE: Cookie enabled');</script>";
+			// 	setcookie("login", $username, time() + 1000000);
+			// }
 
-			else {
-				echo "<script>alert('DEBUG MODE: NO Cookie');</script>";
-				setcookie("login", $username);
+			// else {
+			// 	echo "<script>alert('DEBUG MODE: NO Cookie');</script>";
+			// 	setcookie("login", $username);
 
-			}
+			// }
 
 			echo "<script>window.location.href = 'home.php';</script>";
 		}
@@ -129,9 +129,9 @@
 						<p>Password
 							<input type="password" name="password" size="20" maxlength="32">
 						</p>
-						<p>
+						<!-- <p>
 	              			<input name="cookie" value="1" checked="checked" type="checkbox"> Always stay logged in?
-	            		</p>
+	            		</p> -->
 
 	            		<p>
 	              			<input type="submit" name="submit" value="Login">

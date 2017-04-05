@@ -1,5 +1,6 @@
 <?php
-echo "hello world";
+echo "<script>alert('coba keluar');</script>";
+echo "<script>window.location.href='home.php';</script>";
 	require_once "database.php";
 	$dbPost = new postDB();
 	$posts = $dbPost->selectByUsr("yoko");

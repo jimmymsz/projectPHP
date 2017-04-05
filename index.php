@@ -76,7 +76,7 @@
 			<?php
 			if (isset($_GET['page'])) { 
 				$page = $_GET['page'];
-				if (isset($_GET['page']) && isset($_SESSION['login'])) {
+				if (isset($_SESSION['login'])) {
 					$page = $_GET['page'];
 					require_once 'database.php'; 
 					switch ($page) {
@@ -98,7 +98,9 @@
 				<a href="home.php">Return home</a>
 				<?php } else if (strcmp($page, 'comment') == 0) {
 							require_once 'reply.php';
-					} 
+					} else {
+						echo "<script>window.location.href='login.php';</script>";	
+					}
 				} else {
 					?>
 				<?php echo "<script>window.location.href='login.php';</script>"; ?>

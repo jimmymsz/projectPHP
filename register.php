@@ -22,13 +22,15 @@
 		$db = new userDB();
 
 		if ($db->getUsr($username) != -1) array_push($err, "username $username telah tersedia");
+		// else if (strlen(trim($username)) >30) array_push($err, 'username tidak boleh lebih dari 30 karakter');
+		// if (strlen(trim($fullname)) > 40) array_push($err, '\nfull name melebih 40 karakter\n')
 		if (strlen(trim($password)) < 6) array_push($err, '\npassword minimal 6 karakter');
 		if ($db->getEmail($email) != -1) array_push($err, '\nemail sudah tersedia');
 		if (count($err) == 0) {
 			$result = $db->insertUsr($username, $email, $fullname, $bday,$gender, $password);
 			if ($result == 1) {
 				echo "<script>alert('Registrasi berhasil!');</script>";
-				header("Location: login.php");
+				echo "<script>window.location.href='login.php';</script>";
 			} else {
 				echo "<script>alert('Gagal registrasi');</script>";
 			}
