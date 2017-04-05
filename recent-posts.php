@@ -26,8 +26,12 @@
 			</div>
 			<div id="header-menu">
 				<div class="header-menu-login">
+				<?php if (!isset($_SESSION['login'])) { ?>
 					<a class="btnLogin" href="login.php">Login</a>
 					<a class="btnRegister" href="register.php">Register</a>
+				<?php } else { ?>
+					<a class="btnLogin" href="logout.php">Logout</a>
+				<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -79,7 +83,8 @@
 				<?php echo $p['userName'];?>:
 				<b><?php echo $p['title']; ?></b>
 				<br>
-				<?php echo $p['content']; ?>
+				<?php echo $p['content']; ?><br>
+				<a href="index.php?page=comment&post=<?php echo $p['idPost']; ?>">comment</a>
 				<br>
 				<br>
 			<?php } ?>

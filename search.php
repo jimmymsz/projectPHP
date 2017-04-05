@@ -109,12 +109,15 @@
 				</li>
 			<?php } ?>
 			</ul>
-			<?php if (isset($groups) && count($groups)!=0) {
-				foreach ($groups as $g) { ?>
+			<?php if (isset($groups) && count($groups)!=0) { ?>
 				<ul>
+				<?php foreach ($groups as $g) { ?>
+				
 					<li><a href="search.php?page=grup&idGroup=<?php echo $g['idGroup'];?>"><?php echo $g['groupName'];?></li>
+				
+			<?php } ?>
 				</ul>
-			<?php }} else if (isset($groups) && count($groups) == 0) {
+		<?php } else if (isset($groups) && count($groups) == 0) {
 				echo "Grup tidak ditemukan<br>";
 			}
 				if(isset($_SESSION["login"])) { ?>

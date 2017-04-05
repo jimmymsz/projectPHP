@@ -166,6 +166,20 @@
 			return $result[0];
 		}
 
+		function getReplies($postid) {
+			$query = "SELECT * FROM reply WHERE idPost = '$postid' ORDER BY timestamp ASC";
+			return $this->fetch($query);
+		}
+
+		function insertRep($postid, $username, $content) {
+			$postid = $this->secure_input($postid);
+			$username = $this->secure_input($username);
+			$content = $this->secure_input($content);
+			$timestamp = $this->getDateTime();
+			$query = "INSERT INTO reply(content, idPost, username, timestamp) VALUES ('$content', '$postid', '$username', '$timestamp')";
+			return $this->query($query);
+		}
+
 		function selectByUsr($username) {
 			$query = "SELECT * FROM post WHERE userName = '$username' ORDER BY timestamp ASC";
 			return $this->fetch($query);
@@ -190,12 +204,12 @@
 
 	class groupDB extends Database {
 		function getGroups($groupname) {
-			$query = "SELECT * FROM forumgroup WHERE groupName LIKE '%$groupname%'";
+			$query = "SELECT * FROM forumgroup WHERE groupName LIKE '%$groupname%' ORDER BY timestamp ASC";
 			return $this->fetch($query);
 		}
 
 		function getAll() {
-			$query = "SELECT * FROM forumgroup";
+			$query = "SELECT * FROM forumgroup ORDER BY timeStamp ASC";
 			return $this->fetch($query);
 		}
 
@@ -233,7 +247,7 @@
 		}
 
 		function getTask($groupid, $status) {
-			$query = "SELECT * FROM grouptask WHERE groupid = '$groupid' AND status = '$status'";
+			$query = "SELECT * FROM grouptask WHERE groupid = '$groupid' AND status = '$status' ORDER BY timestamp ASC";
 			return $this->fetch($query);
 		}
 

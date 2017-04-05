@@ -74,32 +74,41 @@
 		<div class="contentWrapper">
 			
 			<?php
-			if (isset($_GET['page']) && isset($_SESSION['login'])) {
+			if (isset($_GET['page'])) { 
 				$page = $_GET['page'];
-				require_once 'database.php'; 
-				switch ($page) {
-					case 'persona':
-						require_once 'persona.php';
-						break;
-					case 'delPos':
-						require_once 'deletePost.php';
-						break;
-					case 'task':
-						require_once 'task.php';
-						break;
-					default:
-						break;  
-				} ?>
-			<a href="home.php">Return home</a>
-			<?php } else { ?>
-			<?php echo "<script>window.location.href='login.php';</script>"; ?>
+				if (isset($_GET['page']) && isset($_SESSION['login'])) {
+					$page = $_GET['page'];
+					require_once 'database.php'; 
+					switch ($page) {
+						case 'persona':
+							require_once 'persona.php';
+							break;
+						case 'delPos':
+							require_once 'deletePost.php';
+							break;
+						case 'task':
+							require_once 'task.php';
+							break;
+						case 'comment':
+							require_once 'reply.php';
+							break;
+						default:
+							break;  
+					} ?>
+				<a href="home.php">Return home</a>
+				<?php } else if (strcmp($page, 'comment') == 0) {
+							require_once 'reply.php';
+					} 
+				} else {
+					?>
+				<?php echo "<script>window.location.href='login.php';</script>"; ?>
 			<!-- <div>
 				<h1 class="h1">Welcome to Forum zeta</h1>
 			</div>
 			<div id="content">
 				<div class="side" style="float: left; background-color: red; width:260px;height: 600px; display: inline-block;" ></div>
 				<div class="main" style="float; right; background-color: lightgreen;width:800px; height: 600px; display: inline-block;"></div> -->
-			<?php } ?>				
+			<?php } ?> 				
 			</div>
 		</div>
 

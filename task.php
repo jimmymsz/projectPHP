@@ -34,7 +34,10 @@
 ?>
 <h2>Pending Task</h2>
 <ul>
-	<?php foreach ($tasks as $t) { ?>
+	<?php if(count($tasks) == 0) {
+		echo "This group doens't have any tasks yet";
+		} else { 
+			foreach ($tasks as $t) { ?>
 		<?php if ($t['status'] == 0) { ?>
 			<li>
 				PIC: <?php echo $t['username']; ?><br>
@@ -54,11 +57,15 @@
 				<?php } ?>
 			</li>
 		<?php } ?>
-	<?php } ?>
+	<?php } 
+	}?>
 </ul>
 <h2>Done Task</h2>
 <ul>
-	<?php foreach ($done as $t) { ?>
+	<?php if(count($done) == 0) {
+		echo "This group hasn't done any task";
+		} else {
+			foreach ($done as $t) { ?>
 		<?php if ($t['status'] == 1) { ?>
 			<li>
 				PIC: <?php echo $t['username']; ?><br>
@@ -71,7 +78,8 @@
 				Status: done
 			</li>
 		<?php } ?>
-	<?php } ?>
+	<?php } 
+	} ?>
 </ul>
 <?php if ($admin) { ?>
 <h2>Add new Task</h2>

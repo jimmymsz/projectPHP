@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2017 at 01:46 PM
+-- Generation Time: Apr 05, 2017 at 01:13 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -41,7 +41,8 @@ CREATE TABLE `forumgroup` (
 
 INSERT INTO `forumgroup` (`idGroup`, `groupName`, `totalUser`, `groupAdmin`, `mainPost`, `timeStamp`) VALUES
 ('dhunter', 'Dragon Hunter', 1, 'yoko', 'abcdef', '2017-03-20 05:50:57'),
-('php', 'Grup PHP', 1, 'yoko', '', '2017-03-11 00:00:00');
+('php', 'Grup PHP', 1, 'yoko', 'Sukses UTS dan UAS', '2017-03-11 00:00:00'),
+('raze', 'Raze', 1, 'yoko', '', '2017-04-04 17:50:07');
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,8 @@ INSERT INTO `grouptask` (`taskId`, `taskName`, `taskDetail`, `status`, `username
 (2, 'Save Hypnos', 'Go to Eden', 0, 'feery', 'dhunter', '2017-04-02 20:31:41'),
 (3, 'Fetch Dragonslayer', 'Meet the Lucier first', 1, 'yoko', 'dhunter', '2017-04-02 20:38:36'),
 (5, 'Join the fray', 'Meet the boss at lv 5', 0, 'yoko', 'dhunter', '2017-04-02 20:42:31'),
-(6, 'Clear the Area', '', 0, 'kuncoro', 'dhunter', '2017-04-02 20:42:47');
+(6, 'Clear the Area', '', 1, 'kuncoro', 'dhunter', '2017-04-02 20:42:47'),
+(7, 'Get some material', 'get 5 mythril', 0, 'feery', 'dhunter', '2017-04-04 17:00:08');
 
 -- --------------------------------------------------------
 
@@ -89,8 +91,9 @@ INSERT INTO `member` (`memberId`, `userName`, `groupId`) VALUES
 (1, 'yoko', 'php'),
 (3, 'yoko', 'dhunter'),
 (4, 'kuncoro', 'dhunter'),
-(6, 'kuncoro', 'php'),
-(7, 'feery', 'dhunter');
+(7, 'feery', 'dhunter'),
+(9, 'kuncoro', 'php'),
+(10, 'yoko', 'raze');
 
 -- --------------------------------------------------------
 
@@ -127,6 +130,29 @@ INSERT INTO `post` (`idPost`, `userName`, `groupId`, `title`, `content`, `timest
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reply`
+--
+
+CREATE TABLE `reply` (
+  `idReply` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `idPost` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `timestamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reply`
+--
+
+INSERT INTO `reply` (`idReply`, `content`, `idPost`, `username`, `timestamp`) VALUES
+(1, 'Heavenz armz', 2, 'yoko', '2017-04-05 00:00:00'),
+(5, 'kok bisa', 18, 'yoko', '2017-04-05 12:51:28'),
+(6, 'bukannya jadi?', 18, 'yoko', '2017-04-05 12:52:45');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -147,8 +173,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userName`, `fullName`, `email`, `gender`, `birthDay`, `passWord`, `timeStamp`) VALUES
 ('feery', 'Feery Edwin', 'fycedwin@gmali.com', 'M', '1996-02-22', '$2y$10$StI5H3Dd3usvR9fqT5H9PeDoAikhVhq6puZAXofeLu1rqncNc2pUm', '2017-03-20 08:43:42'),
 ('kuncoro', 'Kuncoro', 'yoko@yahoo.co.id', 'M', '0000-00-00', '$2y$10$bLE2SzkSiRJD91wf/Cf1BOrJVIN5Pbu8PpbDOSYqKoI0Fg9Yyifdy', '2017-03-19 11:32:41'),
-('laymana', 'laymana', 'yoko@yoko.com', 'M', '2017-03-08', '$2y$10$o9/Do8bjqnWiE1zCDDjXsOQ/hh8u32OU/6jdRm3jwFCl3QA/hzTYi', '2017-03-19 12:17:18'),
-('yoko', 'Kuncoro Yoko', 'yoko@abc.com', 'M', '1996-03-06', '$2y$10$bLE2SzkSiRJD91wf/Cf1BOrJVIN5Pbu8PpbDOSYqKoI0Fg9Yyifdy', '2017-03-11 00:00:00');
+('laymana', 'laymana', 'yoko@yoko.com', 'M', '1996-03-06', '$2y$10$RHy1246A6LV.bsxXHOR9EudaGQVcPmD254xwBmCmEQEnpjlV.2KbG', '2017-03-19 12:17:18'),
+('yoko', 'Kuncoro Yoko', 'yoko@abc.com', 'M', '1996-03-06', '$2y$10$bLE2SzkSiRJD91wf/Cf1BOrJVIN5Pbu8PpbDOSYqKoI0Fg9Yyifdy', '2017-03-11 00:00:00'),
+('zemhart', 'Zemhart', 'zem@yoko.com', 'M', '1996-03-06', '$2y$10$j1vtYpK3DyE.h6QhH2W7U.gNWMZK4H9vNBEkbdsSJk4HZBK2bA2Va', '2017-04-04 17:35:43');
 
 --
 -- Indexes for dumped tables
@@ -181,6 +208,12 @@ ALTER TABLE `post`
   ADD PRIMARY KEY (`idPost`);
 
 --
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
+  ADD PRIMARY KEY (`idReply`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -195,17 +228,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `grouptask`
 --
 ALTER TABLE `grouptask`
-  MODIFY `taskId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `taskId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `memberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `memberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
   MODIFY `idPost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `reply`
+--
+ALTER TABLE `reply`
+  MODIFY `idReply` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --

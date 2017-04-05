@@ -73,7 +73,7 @@
 	<p><?php if ($group['mainPost']) {
 		echo $group['mainPost'];
 	} else {
-		echo "Grup ini belum memiliki tujuan";
+		echo "This group doesn't have any goal yet";
 	} ?></p>
 	<?php if ($admin) { ?> 
 		<?php if(isset($_GET['update'])) { ?>
@@ -107,8 +107,9 @@
 				<?php echo $p['content']; ?>
 				<br>
 				<?php if ($admin) { ?>
-					<a href="index.php?page=delPos&postId=<?php echo $p['idPost']; ?>">delete</a>
+					<a href="index.php?page=delPos&postId=<?php echo $p['idPost']; ?>">delete</a><br>
 				<?php } ?>
+				<a href="index.php?page=comment&post=<?php echo $p['idPost']; ?>">comment</a>
 			</li>
 			<br>
 		<?php } ?>
